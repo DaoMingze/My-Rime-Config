@@ -24,5 +24,5 @@ Derived from Android Pinyin IME : (Apache License version 2.0)
 TianHeng <2417647441@qq.com>
   liangfen.schema.yaml
 
-Dict is from http://yedict.com/
+Derived from scim-table-zh LiangFen table : (Copyright yedict.com)
   liangfen.dict.yaml
