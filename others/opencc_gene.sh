@@ -1,4 +1,5 @@
-mkdir -p opencc
-cp -u ./repo/OpenCC/data/config/* opencc
-cp -u ./repo/OpenCC/data/dictionary/* opencc
-mv -u opencc ../basic/opencc
+mkdir -p ./others/opencc
+cp -u ./others/repo/OpenCC/data/config/* ./others/opencc
+cp -u ./others/repo/OpenCC/data/dictionary/* ./others/opencc
+cp -au ./others/opencc/ ./basic
+rm -rf ./others/opencc
