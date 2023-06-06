@@ -14,7 +14,7 @@
 
 >由于合并雾凇拼音，mrc_releases 暂不可用。
 >
->英文说明尚未更新（the README_en.md is outdated.)
+>英文说明尚未更新（the README_en.md is outdated.）
 
 ## 简介
 
@@ -30,7 +30,7 @@
 目前尝试支持：
 
 |OS|软件|版本|
-|:---:|:---:|:---:|
+|---|---|:---:|
 |Windows 11|[小狼毫 fxliang 维护版](https://github.com/fxliang/weasel/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/fxliang/weasel?include_prereleases)|
 |Linux（Debian 11）|[fcitx5-rime](https://github.com/fcitx/fcitx5-rime)|![Debian package](https://img.shields.io/debian/v/fcitx5-rime)|
 |Android 13|[同文（Trime）输入法](https://github.com/osfans/trime/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/osfans/trime?include_prereleases)|
@@ -76,7 +76,7 @@
 
 ### 辞典（dictionaries）
 
-字符、t 编码、t 频率（非负整数）
+字符\t编码\t频率（非负整数）
 
 #### 字典
 
@@ -84,9 +84,7 @@
 
 简体字或言规范字，以 [《通用规范汉字表》](http://www.gov.cn/zhengce/content/2013-08/19/content_1289.htm)8105 字 [^1] 为标准。在此之上则有《GB 18030-2022 信息技术 中文编码字符集》的字样，约 8 万 7 千字。
 
-广义上的汉字，或者 [Unihan](http://www.unicode.org/reports/tr38/)（Unicode 中的 CJK Unified Ideographs 子集）包括传承字（正）、异体字（包含但不限于俗体）、简化规范字（简化及类推简化的一个子集）、海外汉字（以日本和制汉字为典型）等来源。当前的 Unicode 15 中 CJK Unified（20992 字）、CJK Ext-A（6592 字）、CJK Ext-B（42720 字）、CJK Ext-C（4154 字）、CJK Ext-D（222 字）、CJK Ext-E（5762 字）、CJK Ext-F（7473 字）、CJK Ext-G（4939 字）、CJK Ext-H（4192 字），合计 97046 字。此外还有兼容区（472字）和兼容补充区（542字），共计98060字。
-
-而以目前笔者所知最大的汉字字库“全宋体”来看，广义汉字约有 18 万余。
+广义上的汉字，或者 [Unihan](http://www.unicode.org/reports/tr38/)（Unicode 中的 CJK Unified Ideographs 子集）包括传承字（正）、异体字（包含但不限于俗体）、简化规范字（简化及类推简化的一个子集）、海外汉字（以日本和制汉字为典型）等来源。当前的 Unicode 15 中 CJK Unified（20992 字）、CJK Ext-A（6592 字）、CJK Ext-B（42720 字）、CJK Ext-C（4154 字）、CJK Ext-D（222 字）、CJK Ext-E（5762 字）、CJK Ext-F（7473 字）、CJK Ext-G（4939 字）、CJK Ext-H（4192 字），合计 97046 字。此外还有兼容区（472字）和兼容补充区（542字），共计98060字。而以目前笔者所知最大的汉字字库“全宋体”来看，广义汉字约有 18 万余。
 
 因此有，全宋体（18 万）>Unihan（9 万 7 千）>GB18030（8 万 7 千）。
 
@@ -94,11 +92,13 @@
 
 但是，正如汉语存在方言上的有音无字一样，Unicode 也存在为数不少的有字无音。[ZengYL](https://www.zengyulin.cn) 提供了一个 [将 Unicode 可读性标注转换为词库的方法](https://github.com/iDvel/rime-ice/issues/116)，[iDvel](https://github.com/iDvel) 处理后得到了 41448 字的普通话标注。
 
-融合拼音在`others`引入了 [Han in Glyphs](https://github.com/3type/glyphs-han) 进行字符编码的准备。
+多音字定音，对于字典而言，有其音就尽量有其字，而无须在意该字义的词频。
 
 ##### 字义
 
 而字典可释义大概在 10 万字左右，其中有大量的异体、同形、避讳缺笔等字形。据 WFG 先生统计，[台湾“教育部”异体字字典](https://dict.variants.moe.edu.tw/) 合并同形字后实际收字 96800 字，略少于《汉字海》。
+
+在字形语义转字符问题（如输入“四个又”，输出“叕”；`other.dict.yaml`、`emoji.txt`）上，雾凇拼音做了很多有价值的工作。但考虑到基本字典部分是语法严格的，因此字形语义转字符单列。
 
 ##### 字频
 
@@ -115,12 +115,14 @@
 1. 以`Unihan code`为字符字形基础，以`Unihan Readings`为字符读音基础，以邢红兵等25亿语料字频表和古籍汉字字频统计为字频基础。
 2. 考虑到使用情景，以现代汉语：古代汉语=7:3 的比例关系重构字频。
 3. 对于有字无音的字形，根据字义和其他参考进行赋音或编码。
-4. 对于多音字
+4. 对于多音字，重复列出。
 
 因此，字典有
 
-1. unihan_a：有字频的14975字
-2. unihan_b：Unihan中无字频的98060 - 14975= 87085 字
+1. unihan_a：有字频且有字音的14975字
+2. unihan_b：有字频无字音，但可以通过其他方式标注的（其他方言或语言、字形语义、寓意）
+3. unihan_c：Unihan中无字频，但有本方案主要标注方式的（音码如拼音、形码如字海两分等）
+4. unihan_d：无字频，通过其他方式标注的。
 
 #### 词语
 
@@ -132,8 +134,6 @@
   - 百科词头：wiki、moe
 
 雾凇拼音的词库倾向语用，融合拼音的词库倾向语义。就更新和实用而言，具有专业词库要求的最好选用融合拼音词库方式，通过不同类型的“挂载”实现词库需求；而日常输入方面，雾凇拼音不断调整的词库词频为便捷、省心的输入提供了方便（8105+base）。
-
-在语义转字符问题（如输入“四个又”，输出“叕”；`other.dict.yaml`、`emoji.txt`）上，雾凇拼音做了很多有价值的工作，可以集成为语义转字符解决方案，以文件夹的方式拉取更新。
 
 #### 语句
 
@@ -162,39 +162,42 @@
     └─trime
 ```
 
+组件更新检查
+
+|仓库|最近提交|
+|---|---|
+|[rime-prelude](https://github.com/rime/rime-prelude)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-prelude)|
+|[rime-essay](https://github.com/rime/rime-essay)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-essay)|
+|[OpenCC](https://github.com/BYVoid/OpenCC)|![GitHub last commit](https://img.shields.io/github/last-commit/BYVoid/OpenCC)|
+|[袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-pinyin-simp)|
+|[字海两分](http://cheonhyeong.com/Simplified/download.html)|5.0|
+|[Easy English](https://github.com/BlindingDark/rime-easy-en)|![GitHub last commit](https://img.shields.io/github/last-commit/BlindingDark/rime-easy-en)|
+|[融合拼音](https://github.com/tumuyan/rime-melt)|![GitHub last commit](https://img.shields.io/github/last-commit/tumuyan/rime-melt)|
+|[雾凇拼音](https://github.com/iDvel/rime-ice)|![GitHub last commit](https://img.shields.io/github/last-commit/iDvel/rime-ice)|
+
 ### 分类说明
 
 #### Basic：基础与支持文件
 
-##### 文件
-
-来自 [rime-prelude](https://github.com/rime/rime-prelude)
+来自 [rime-prelude](https://github.com/rime/rime-prelude)，更新方式：拉取（git pull）
 
 - `default.yaml`，缺省配置文件
 - `key_bindings.yaml`，键位绑定配置
 - `punctuation.yaml`，全半角转换符号配置
 - `symbols.yaml`，符号配置
 
-来自 [rime-easay](https://github.com/rime/rime-essay)
+`essay.txt`，八股文，预设词汇表和语言模型。来自 [rime-easay](https://github.com/rime/rime-essay)，更新方式：拉取（git pull）
 
-- `essay.txt`，八股文，预设词汇表和语言模型
+文件夹
+
+- `fonts/`，**空文件夹**，用来存放字库文件，详见 [字体](#字体)一节
+- `lua/`，详见 [lua 脚本](#lua-脚本)一节
+- `opencc/`，由[OpenCC](https://github.com/BYVoid/OpenCC)提供简繁转换，[融合拼音](https://github.com/tumuyan/rime-melt)提供拼音滤镜，[雾凇拼音](https://github.com/iDvel/rime-ice)提供`Emoji`滤镜。
 
 ###### 待完成
 
 - `default.custom.yaml`，启用方案记录，**空文件**
-- `rime.lua`，综合配置
 - 符号修改，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
-
-|仓库|最近提交|
-|---|---|
-|[rime-prelude](https://github.com/rime/rime-prelude)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-prelude)|
-|[rime-easay](https://github.com/rime/rime-essay)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-easay)|
-
-##### 文件夹
-
-- `fonts/`，**空文件夹**，用来存放字库文件，详见 [字体](#字体)一节
-- `lua/`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)，**有修改**，详见 [lua 脚本](#lua-脚本)一节
-- `opencc/`，合并 [opencc 预编译包](https://github.com/BYVoid/OpenCC/wiki/Download#prebuild-%E9%A0%90%E7%B7%A8%E8%AD%AF) 中 `\build\share\opencc`与 [融合拼音](<<https://github.com/tumuyan/rime-melt>) 中的> `opencc`
 
 ###### 字体
 
@@ -212,20 +215,30 @@
 
 ###### lua 脚本
 
-- `lua_unicode_translator.lua`，Unicode 转字符脚本，来自 [Trime 同文输入法 QQ 群](458845988)@[Shitlime](1753102572)
-- `melt.lua`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
+- `rime.lua`，综合配置
+- `lua/lua_unicode_translator.lua`，Unicode 转字符脚本，来自 [Trime 同文输入法 QQ 群](458845988)@[Shitlime](1753102572)
+- `lua/melt.lua`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
 
 #### Schema：输入方案文件
 
-- `liangfen.schema.yaml`，字海两分 5.0 输入方案，来自 [天珩的小站-下载页](http://cheonhyeong.com/Simplified/download.html)
-- `melt_eng.schema.yaml`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
-- `melt_pinyin.schema.yaml`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
+输入方案和基本词典同目录
+
+##### 字海两分 5.0 输入方案
+
+来自 [天珩的小站-下载页](http://cheonhyeong.com/Simplified/download.html)，`ZHLF_rime_5.0.7z`
+
+- `liangfen.dict.yaml`
+- `liangfen.schema.yaml`
+
+充当拆分组字功能的基础
+
+##### 融合拼音
+
+来自 [融合拼音](https://github.com/tumuyan/rime-melt)
+
+- `melt_eng.schema.yaml`，
+- `melt_pinyin.schema.yaml`
 - `melt_pinyin.custom.yaml`，在融合拼音中增加半全角切换。
-- `unicode.schema.yaml`，来自 [Trime 同文输入法 QQ 群](458845988)@[Shitlime](1753102572)
-
-#### Ex_dict：方案词库文件
-
-melt 方案要求如下，修改后的 pinyin_simp 方案与 melt 方案的词库要求一致。
 
 详见 [融合拼音](README_origin.md)[文件组成及授权](README_origin.md#文件组成及授权）一节。`other`文件夹中存放部分拟作词典的中间产物（即未完成)。
 
@@ -244,9 +257,16 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 1. 作为主词库的 `melt_eng.dict.yaml`，同时也是词库加载文件
    1. `melt_mult_language.dict.yaml`，多语言字符拉丁化输入
 
-uncode 方案要求：
+##### 雾凇拼音
 
+来自 [雾凇拼音](https://github.com/iDvel/rime-ice)
+
+##### 其他
+
+- `unicode.schema.yaml`，来自 [Trime 同文输入法 QQ 群](458845988)@[Shitlime](1753102572)
 - `uncode.dict.yaml`，无内容
+
+#### Ex_dict：方案词库文件
 
 #### Custom：自定义部分
 
@@ -262,18 +282,11 @@ uncode 方案要求：
 
 #### Other
 
-##### Old：停用文件备份
+- essay_script
+- repo
+  - OpenCC
 
-[融合拼音](https://github.com/tumuyan/rime-melt)1.6 以前通过与袖珍拼音嵌合实现
-
-- `melt.schema.yaml`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
-- `pinyin_simp.schema.yaml`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
-- `pinyin_simp.custom.yaml`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)
-
-## 我的运行环境
-
-1. 操作系统：Android 12L(LineageOS 19)、Windows 11、Debian 11
-2. 软件：[TRIME](https://github.com/osfans/trime)，同文输入法 3.0、[小狼毫](https://github.com/fxliang/weasel/releases)
+## 运行环境与处理
 
 ### 拉取词库
 
