@@ -168,17 +168,27 @@
 
 ##### 文件
 
-- `default.yaml`，预设文件，来自 [rime-prelude](https://github.com/rime/rime-prelude)
+来自 [rime-prelude](https://github.com/rime/rime-prelude)
+
+- `default.yaml`，缺省配置文件
+- `key_bindings.yaml`，键位绑定配置
+- `punctuation.yaml`，全半角转换符号配置
+- `symbols.yaml`，符号配置
+
+来自 [rime-easay](https://github.com/rime/rime-essay)
+
+- `essay.txt`，八股文，预设词汇表和语言模型
+
+###### 待完成
+
 - `default.custom.yaml`，启用方案记录，**空文件**
-- `essay.txt`，2023-02-04，来自 [rime-easay](https://github.com/rime/rime-essay) 八股文，预设词汇表和语言模型
-- `key_bindings.yaml`，来自 [rime-prelude](https://github.com/rime/rime-prelude)
-- `punctuation.yaml`，来自 [rime-prelude](https://github.com/rime/rime-prelude)
-- `rime.lua`，来自 [融合拼音](https://github.com/tumuyan/rime-melt)，**有修改**，加入 unicode_translate 脚本的调用
-- `symbols.yaml`，ver.1.6，2022-4-10，来自 [rime-prelude](https://github.com/rime/rime-prelude)，**有修改**，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
+- `rime.lua`，综合配置
+- 符号修改，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
 
 |仓库|最近提交|
 |---|---|
 |[rime-prelude](https://github.com/rime/rime-prelude)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-prelude)|
+|[rime-easay](https://github.com/rime/rime-essay)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-easay)|
 
 ##### 文件夹
 
