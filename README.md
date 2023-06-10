@@ -23,7 +23,7 @@
 输入方案和词典来源：
 
 - forked [Rime-melt，融合拼音](https://github.com/tumuyan/rime-melt)![GitHub license](https://img.shields.io/github/license/tumuyan/rime-melt)
-- merged [Rime-ice，雾凇拼音]([README_ice.md](https://github.com/iDvel/rime-ice))![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)
+- merged [Rime-ice，雾凇拼音](https://github.com/iDvel/rime-ice)![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)
 
 参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
 
@@ -31,11 +31,13 @@
 
 |OS|软件|版本|
 |---|---|:---:|
-|Windows 11|[小狼毫 fxliang 维护版](https://github.com/fxliang/weasel/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/fxliang/weasel?include_prereleases)|
+|Windows 11|[小狼毫 weasel](https://github.com/rime/weasel/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/rime/weasel?include_prereleases)|
 |Linux（Debian 11）|[fcitx5-rime](https://github.com/fcitx/fcitx5-rime)|![Debian package](https://img.shields.io/debian/v/fcitx5-rime)|
 |Android 13|[同文（Trime）输入法](https://github.com/osfans/trime/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/osfans/trime?include_prereleases)|
 
 [^1]: 国务院关于公布《通用规范汉字表》的通知：国发〔2013〕23 号
+
+[TOC]
 
 ## 设计
 
@@ -164,16 +166,17 @@
 
 组件更新检查
 
-|仓库|最近提交|
-|---|---|
-|[rime-prelude](https://github.com/rime/rime-prelude)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-prelude)|
-|[rime-essay](https://github.com/rime/rime-essay)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-essay)|
-|[OpenCC](https://github.com/BYVoid/OpenCC)|![GitHub last commit](https://img.shields.io/github/last-commit/BYVoid/OpenCC)|
-|[袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-pinyin-simp)|
-|[字海两分](http://cheonhyeong.com/Simplified/download.html)|5.0|
-|[Easy English](https://github.com/BlindingDark/rime-easy-en)|![GitHub last commit](https://img.shields.io/github/last-commit/BlindingDark/rime-easy-en)|
-|[融合拼音](https://github.com/tumuyan/rime-melt)|![GitHub last commit](https://img.shields.io/github/last-commit/tumuyan/rime-melt)|
-|[雾凇拼音](https://github.com/iDvel/rime-ice)|![GitHub last commit](https://img.shields.io/github/last-commit/iDvel/rime-ice)|
+|仓库|最近提交|许可证|
+|---|---|---|
+|[rime-prelude](https://github.com/rime/rime-prelude)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-prelude)|![GitHub license](https://img.shields.io/github/license/rime/rime-prelude)|
+|[rime-essay](https://github.com/rime/rime-essay)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-essay)|![GitHub license](https://img.shields.io/github/license/rime/rime-essay)|
+|[OpenCC](https://github.com/BYVoid/OpenCC)|![GitHub last commit](https://img.shields.io/github/last-commit/BYVoid/OpenCC)|![GitHub license](https://img.shields.io/github/license/BYVoid/OpenCC)|
+|[袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-pinyin-simp)|![GitHub license](https://img.shields.io/github/license/rime/rime-pinyin-simp)|
+|[Rime 简体中文用户定制文件](https://github.com/huaxianyan/Rime)|![GitHub last commit](https://img.shields.io/github/last-commit/huaxianyan/Rime)|![GitHub license](https://img.shields.io/github/license/huaxianyan/Rime)|
+|[字海两分](http://cheonhyeong.com/Simplified/download.html)|5.0|未知|
+|[Easy English](https://github.com/BlindingDark/rime-easy-en)|![GitHub last commit](https://img.shields.io/github/last-commit/BlindingDark/rime-easy-en)|![GitHub license](https://img.shields.io/github/license/BlindingDark/rime-easy-en)|
+|[融合拼音](https://github.com/tumuyan/rime-melt)|![GitHub last commit](https://img.shields.io/github/last-commit/tumuyan/rime-melt)|![GitHub license](https://img.shields.io/github/license/tumuyan/rime-melt)|
+|[雾凇拼音](https://github.com/iDvel/rime-ice)|![GitHub last commit](https://img.shields.io/github/last-commit/iDvel/rime-ice)|![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)|
 
 ### 分类说明
 
@@ -312,6 +315,12 @@ git merge rime-ice --allow-unrelated-histories
 4. 调用 7-zip，将 releases 文件夹压缩
 
 ② 使用提供的发行包
+
+③ 使用东风破（plum）
+
+```
+rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
+```
 
 ### 设置
 
