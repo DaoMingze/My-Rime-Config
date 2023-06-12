@@ -27,6 +27,8 @@
 
 参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
 
+部分配置参考[rime-ice-custom](https://github.com/someok/rime-ice-custom)
+
 目前尝试支持：
 
 |OS|软件|版本|
@@ -177,6 +179,7 @@
 |[Easy English](https://github.com/BlindingDark/rime-easy-en)|![GitHub last commit](https://img.shields.io/github/last-commit/BlindingDark/rime-easy-en)|![GitHub license](https://img.shields.io/github/license/BlindingDark/rime-easy-en)|
 |[融合拼音](https://github.com/tumuyan/rime-melt)|![GitHub last commit](https://img.shields.io/github/last-commit/tumuyan/rime-melt)|![GitHub license](https://img.shields.io/github/license/tumuyan/rime-melt)|
 |[雾凇拼音](https://github.com/iDvel/rime-ice)|![GitHub last commit](https://img.shields.io/github/last-commit/iDvel/rime-ice)|![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)|
+|[雾凇拼音自定义配置](https://github.com/someok/rime-ice-custom)|![GitHub last commit](https://img.shields.io/github/last-commit/someok/rime-ice-custom)|![GitHub license](https://img.shields.io/github/license/someok/rime-ice-custom)|
 
 ### 分类说明
 
@@ -184,7 +187,7 @@
 
 来自 [rime-prelude](https://github.com/rime/rime-prelude)，更新方式：拉取（git pull）
 
-- `default.yaml`，缺省配置文件
+- `default.yaml`，缺省配置文件，【有修改】根据雾凇拼音增加相关项注释
 - `key_bindings.yaml`，键位绑定配置
 - `punctuation.yaml`，全半角转换符号配置
 - `symbols.yaml`，符号配置
@@ -295,7 +298,7 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 
 ```bash
 git checkout -b rime-melt
-git pull https://github.com/tumuyan/rime-melt master
+git pull https://github.com/tumuyan/rime-melt master --depth=1 --allow-unrelated-histories
 ##手动调整
 git merge rime-melt --allow-unrelated-histories
 git checkout -b rime-ice
