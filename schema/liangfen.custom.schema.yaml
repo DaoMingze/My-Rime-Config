@@ -1,0 +1,36 @@
+# Rime default settings
+# encoding: utf-8
+#
+config_version: '2023-06-24'
+
+patch:
+  engine/filters: simplifier@pinyin
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 英语 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 简体, 繁體 ]
+  - name: pinyin #拼音滤镜
+    reset: 1
+    states: [关拼音,拼音] 
+
+engine/translators:
+    - punct_translator
+    - script_translator
+    - enable_correction: false
+
+pinyin:
+  opencc_config: pinyin.json
+  option_name: pinyin
+  show_in_comment: true
+  comment_format:
+    - "xform/&nbsp/\\/"
+    - "xform/<br>/\r/"
+#    - "xform/<br>/\r/"  #编码滤镜内容换行。注意: 如果用于小狼毫,请将\n改为\r,否则无效
+  tips: all
+
+menu:
+  page_size: 9

@@ -10,12 +10,10 @@
 name: liangfen
 version: "5.0"
 sort: by_weight
-use_preset_vocabulary: true
-max_phrase_length: 7
-min_phrase_weight: 100
+# use_preset_vocabulary: true
+# max_phrase_length: 7
+# min_phrase_weight: 100
 ...
-
-
 一	heng
 丁	hengyi
 丂	hengyi

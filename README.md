@@ -15,6 +15,10 @@
 >由于合并雾凇拼音，mrc_releases 暂不可用。
 >
 >英文说明尚未更新（the README_en.md is outdated.）
+>
+> wget获取辞典文件脚本还在调试中
+> liangfen自定义配置还在调试中
+> 目前lua脚本完全套用自雾凇拼音，还在自定义修改中
 
 ## 简介
 
@@ -311,7 +315,7 @@ git pull https://github.com/tumuyan/rime-melt master --depth=1 --allow-unrelated
 ##手动调整
 git merge rime-melt --allow-unrelated-histories
 git checkout -b rime-ice
-git pull https://github.com/iDvel/rime-ice main
+git pull https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-histories --no-rebase
 git merge rime-ice --allow-unrelated-histories
 ```
 

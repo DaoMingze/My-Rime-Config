@@ -4,8 +4,8 @@
 
 schema:
   schema_id: liangfen
-  name: 两分拼音・精简
-  version: "4.0"
+  name: LiangFen
+  version: "5.0"
   author:
     - TianHeng <2417647441@qq.com>
   description: |
@@ -16,14 +16,12 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ 中文, 英语 ]
+    states: [ Chi, Eng ]
   - name: full_shape
-    states: [ 半角, 全角 ]
+    states: [ Half, Full ]
   - name: simplification
-    states: [ 简体, 繁體 ]
-  - name: pinyin #拼音滤镜
-    reset: 1
-    states: [关拼音,拼音] 
+    states: [ Trad, Simp ]
+
 engine:
   processors:
     - ascii_composer
@@ -42,21 +40,12 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
-    - script_translator
-    - enable_correction: false
+    - r10n_translator
+    - reverse_lookup_translator
   filters:
     - simplifier
-    - simplifier@pinyin
     - uniquifier
-pinyin:
-  opencc_config: pinyin.json
-  option_name: pinyin
-  show_in_comment: true
-  comment_format:
-    - "xform/&nbsp/\\/"
-    - "xform/<br>/\r/"
-#    - "xform/<br>/\r/"  #编码滤镜内容换行。注意: 如果用于小狼毫,请将\n改为\r,否则无效
-  tips: all
+
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
@@ -73,14 +62,23 @@ translator:
     - "xlit|v|ü|"
     - xform/iü/iv/
 
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  tips: 〔PinYin〕
+  preedit_format:
+    - xform/([nljqxy])v/$1ü/
+
 punctuator:
   import_preset: default
 
 menu:
-  page_size: 9
+  page_size: 6
 
 key_binder:
   import_preset: default
 
 recognizer:
   import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*$"
