@@ -4,7 +4,7 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/daomingze/My-Rime-Config)
 
-我的RIME输入法配置，皮肤、词典、输入方案、配置
+我的 RIME 输入法配置，皮肤、词典、输入方案、配置
 
 [CN](README.md) | ~~[EN](README_en.md)~~
 
@@ -27,7 +27,7 @@
 
 参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
 
-部分配置参考[rime-ice-custom](https://github.com/someok/rime-ice-custom)
+部分配置参考 [rime-ice-custom](https://github.com/someok/rime-ice-custom)
 
 目前尝试支持：
 
@@ -47,7 +47,7 @@
 
 为了方便拉取合并更新，自定义事项使用`patch`。
 
-功能上，微机（PC）以`微软拼音`为参考，移动终端以`Gboard`（谷歌Gboard输入法）为参考，结合 Rime 的各种方案组合如下
+功能上，微机（PC）以`微软拼音`为参考，移动终端以`Gboard`（谷歌 Gboard 输入法）为参考，结合 Rime 的各种方案组合如下
 
 - 状态栏功能
   - [x] 中英、中英标点、全半角切换，Rime 自带
@@ -59,7 +59,7 @@
 - 输入操作
   - [ ] 候选字翻页，融合拼音由于使用了`-`，因此不支持-/=翻页。
   - [x] 以词定字，左右方括号，雾凇拼音实现。
-  - [x] u 模式，部件拼字。以字海两分输入方案为反查（融合拼音实现），反查起首从\`改为`u`（雾凇拼音实现）。
+  - [x] u 模式，部件拼字。以字海两分输入方案为反查（融合拼音实现），反查起首从、`改为`u`（雾凇拼音实现）。
   - [x] uu 模式，专门字符。以`symbol.yaml`为基础，将默认的`/`改为`uu`（雾凇拼音实现以 v 开头）。
   - [ ] v 模式，输入内容格式转换。计划通过 lua 脚本实现（脚本有现成的）
     - 数字
@@ -80,7 +80,7 @@
 
 ### 辞典（dictionaries）
 
-字符\t编码\t频率（非负整数）
+字符、t 编码、t 频率（非负整数）
 
 #### 字典
 
@@ -88,7 +88,7 @@
 
 简体字或言规范字，以 [《通用规范汉字表》](http://www.gov.cn/zhengce/content/2013-08/19/content_1289.htm)8105 字 [^1] 为标准。在此之上则有《GB 18030-2022 信息技术 中文编码字符集》的字样，约 8 万 7 千字。
 
-广义上的汉字，或者 [Unihan](http://www.unicode.org/reports/tr38/)（Unicode 中的 CJK Unified Ideographs 子集）包括传承字（正）、异体字（包含但不限于俗体）、简化规范字（简化及类推简化的一个子集）、海外汉字（以日本和制汉字为典型）等来源。当前的 Unicode 15 中 CJK Unified（20992 字）、CJK Ext-A（6592 字）、CJK Ext-B（42720 字）、CJK Ext-C（4154 字）、CJK Ext-D（222 字）、CJK Ext-E（5762 字）、CJK Ext-F（7473 字）、CJK Ext-G（4939 字）、CJK Ext-H（4192 字），合计 97046 字。此外还有兼容区（472字）和兼容补充区（542字），共计98060字。而以目前笔者所知最大的汉字字库“全宋体”来看，广义汉字约有 18 万余。
+广义上的汉字，或者 [Unihan](http://www.unicode.org/reports/tr38/)（Unicode 中的 CJK Unified Ideographs 子集）包括传承字（正）、异体字（包含但不限于俗体）、简化规范字（简化及类推简化的一个子集）、海外汉字（以日本和制汉字为典型）等来源。当前的 Unicode 15 中 CJK Unified（20992 字）、CJK Ext-A（6592 字）、CJK Ext-B（42720 字）、CJK Ext-C（4154 字）、CJK Ext-D（222 字）、CJK Ext-E（5762 字）、CJK Ext-F（7473 字）、CJK Ext-G（4939 字）、CJK Ext-H（4192 字），合计 97046 字。此外还有兼容区（472 字）和兼容补充区（542 字），共计 98060 字。而以目前笔者所知最大的汉字字库“全宋体”来看，广义汉字约有 18 万余。
 
 因此有，全宋体（18 万）>Unihan（9 万 7 千）>GB18030（8 万 7 千）。
 
@@ -116,16 +116,16 @@
 
 ##### 字典处理小结
 
-1. 以`Unihan code`为字符字形基础，以`Unihan Readings`为字符读音基础，以邢红兵等25亿语料字频表和古籍汉字字频统计为字频基础。
+1. 以`Unihan code`为字符字形基础，以`Unihan Readings`为字符读音基础，以邢红兵等 25 亿语料字频表和古籍汉字字频统计为字频基础。
 2. 考虑到使用情景，以现代汉语：古代汉语=7:3 的比例关系重构字频。
 3. 对于有字无音的字形，根据字义和其他参考进行赋音或编码。
 4. 对于多音字，重复列出。
 
 因此，字典有
 
-1. unihan_a：有字频且有字音的14975字
+1. unihan_a：有字频且有字音的 14975 字
 2. unihan_b：有字频无字音，但可以通过其他方式标注的（其他方言或语言、字形语义、寓意）
-3. unihan_c：Unihan中无字频，但有本方案主要标注方式的（音码如拼音、形码如字海两分等）
+3. unihan_c：Unihan 中无字频，但有本方案主要标注方式的（音码如拼音、形码如字海两分等）
 4. unihan_d：无字频，通过其他方式标注的。
 
 #### 词语
@@ -181,6 +181,15 @@
 |[雾凇拼音](https://github.com/iDvel/rime-ice)|![GitHub last commit](https://img.shields.io/github/last-commit/iDvel/rime-ice)|![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)|
 |[雾凇拼音自定义配置](https://github.com/someok/rime-ice-custom)|![GitHub last commit](https://img.shields.io/github/last-commit/someok/rime-ice-custom)|![GitHub license](https://img.shields.io/github/license/someok/rime-ice-custom)|
 
+工具
+
+```cmd
+#Windows
+winget install GNU.Wget2 --source winget
+#Linux Debian
+apt install wget
+```
+
 ### 分类说明
 
 #### Basic：基础与支持文件
@@ -198,7 +207,7 @@
 
 - `fonts/`，**空文件夹**，用来存放字库文件，详见 [字体](#字体)一节
 - `lua/`，详见 [lua 脚本](#lua-脚本)一节
-- `opencc/`，由[OpenCC](https://github.com/BYVoid/OpenCC)提供简繁转换，[融合拼音](https://github.com/tumuyan/rime-melt)提供拼音滤镜，[雾凇拼音](https://github.com/iDvel/rime-ice)提供`Emoji`滤镜。
+- `opencc/`，由 [OpenCC](https://github.com/BYVoid/OpenCC) 提供简繁转换，[融合拼音](https://github.com/tumuyan/rime-melt) 提供拼音滤镜，[雾凇拼音](https://github.com/iDvel/rime-ice) 提供`Emoji`滤镜。
 
 ###### 待完成
 
@@ -308,7 +317,7 @@ git merge rime-ice --allow-unrelated-histories
 
 ### 下载
 
-推荐使用[补丁](https://github.com/rime/home/wiki/Configuration#補靪)的方式启用。
+推荐使用 [补丁](https://github.com/rime/home/wiki/Configuration#補靪)的方式启用。
 
 ① 生成更新包。生成思路参考 [rimerc](https://github.com/Bambooin/rimerc)，提供 bat 文件。
 
