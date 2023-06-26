@@ -12,6 +12,7 @@ installation.yaml
 melt_eng_custom.dict.yaml
 others/script/scel2txt/out/*
 others/script/scel2txt/scel/*
+others/repo/*
 release/
 rime_console
 rime_deployer
