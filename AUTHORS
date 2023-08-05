@@ -20,9 +20,12 @@ Gong Chen <chen.sst@gmail.com> : (Apache License version 2.0)
 
 Derived from Android Pinyin IME : (Apache License version 2.0)
   pinyin_simp.dict.yaml
+<<<<<<< HEAD
 
 TianHeng <2417647441@qq.com>
   liangfen.schema.yaml
 
 Derived from scim-table-zh LiangFen table : (Copyright yedict.com)
   liangfen.dict.yaml
+=======
+>>>>>>> f2c67f73a57514b2a619ab2e94972584d88eece7

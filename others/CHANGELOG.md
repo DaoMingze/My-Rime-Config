@@ -2,7 +2,11 @@
 
 除日常更新词库外的一些主要更新 🆕 及破坏性变更 ⚠️。
 
+## 2023-07-28 📖
 
+删除了八股文，因为 [#407](https://github.com/iDvel/rime-ice/issues/407)
+
+全词库完成注音 🎉 [#317](https://github.com/iDvel/rime-ice/issues/317)
 
 ## 2023-06-13 ⚠️
 
@@ -39,7 +43,7 @@
 
 数字、金额大写 [#264](https://github.com/iDvel/rime-ice/issues/264)
 
-- 增加 Lua 脚本 `number_translator.lua` 
+- 增加 Lua 脚本 `number_translator.lua`
 
 ## 2023-05-09 🆕
 
@@ -48,4 +52,3 @@
 ## 2023-05-08 ⚠️
 
 Lua 模块化 [a34c46a](https://github.com/iDvel/rime-ice/commit/a34c46ad34673d535dc1df4ef208ad4c7e3baf80) [b514049](https://github.com/iDvel/rime-ice/commit/b514049e33c7e0c8fccacec49faa3830bd7bdf26)
-
