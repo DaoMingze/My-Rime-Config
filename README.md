@@ -10,7 +10,7 @@
 
 </div>
 
-当前状态
+## 当前状态
 
 >由于合并雾凇拼音，mrc_releases 暂不可用。
 >
@@ -19,6 +19,14 @@
 > wget获取辞典文件脚本还在调试中
 > liangfen自定义配置还在调试中
 > 目前lua脚本完全套用自雾凇拼音，还在自定义修改中
+
+调整期间使用雾凇拼音，并参考[someok/rime-ice-custom](https://github.com/someok/rime-ice-custom)
+
+- fcitx5-rime，`defualt.custom.yaml`在`/home/wdz/.local/share/fcitx5/rime/`
+
+```
+rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
+```
 
 ## 简介
 

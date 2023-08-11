@@ -7,7 +7,6 @@
 **userdb.txt
 *private*
 build/
-custom/default.custom.yaml
 installation.yaml
 melt_eng_custom.dict.yaml
 others/repo/*
@@ -18,3 +17,5 @@ rime_console
 rime_deployer
 rime_patch
 user.yaml
+！weasel.custom.yaml
+！fcitx5.custom.yaml
