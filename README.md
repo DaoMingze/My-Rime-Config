@@ -310,13 +310,10 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 ### 拉取词库
 
 ```bash
-git checkout -b rime-melt
-git pull https://github.com/tumuyan/rime-melt master --depth=1 --allow-unrelated-histories
+git pull https://github.com/tumuyan/rime-melt master --depth=1 --allow-unrelated-histories --no-rebase
 ##手动调整
-git merge rime-melt --allow-unrelated-histories
-git checkout -b rime-ice
 git pull https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-histories --no-rebase
-git merge rime-ice --allow-unrelated-histories
+##手动调整
 ```
 
 ### 下载
