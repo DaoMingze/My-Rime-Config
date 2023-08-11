@@ -1,10 +1,10 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "1.38" #配置版本号
+config_version: "1.4"
 name: wendao
 author: dao_mingze
-description: 修改自默认、同文风主题，适配trime3.2.8。
+description: 修改自默认、同文风主题，适配trime3.2.10。
 
 author: &au dao_mingze@163.com
 
@@ -15,7 +15,7 @@ android_keys:
 
 ##键盘高度
 height:
-  1: &keyboard 40 #键盘高度
+  1: &keyboard 44 #键盘高度
   2: &hgap 1 #键盘横缝大小
   3: &sgap 5 #键盘竖缝大小
 round_corner:
@@ -29,9 +29,9 @@ style:
   background_dim_amount: 0.5
   #root_background: keyboard_back_color # 整个键盘区+候选栏的背景图/色
   candidate_font: han.ttf  #候选字体
-  candidate_padding: 5  #候选项内边距
+  candidate_padding: 4  #候选项内边距
   candidate_spacing: 0.5  #候选间距
-  candidate_text_size: 16  #候选字号
+  candidate_text_size: 14  #候选字号
   candidate_use_cursor: true #高亮候选项
   candidate_view_height: 20 #候选区高度
   color_scheme: default #配色方案
@@ -82,7 +82,7 @@ style:
   key_font: symbol.ttf #键盘字体
   key_height: *keyboard #键高
   key_long_text_size: 14 #长标签字号
-  key_text_size: 22 #键字号
+  key_text_size: 20 #键字号
   key_width: 10.0 #键宽，占屏幕宽的百分比
   keyboards: [.default, letter, default, number, symbols] #键盘配置
   label_text_size: 20 #标签字号
@@ -105,7 +105,7 @@ style:
   symbol_text_size: 10 #符号字号
   text_font: latin.ttf #编码字体
   #text_height: 22 #编码区高度
-  text_size: 16 #编码区字号
+  text_size: 14 #编码区字号
   vertical_correction: -5
   vertical_gap: *hgap #键盘行距
   long_text_font: comment.ttf #剪贴板等可能包含大段文本使用的字体
