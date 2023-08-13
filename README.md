@@ -46,7 +46,7 @@ rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
 |OS|软件|版本|
 |---|---|:---:|
 |Windows 11|[小狼毫 weasel](https://github.com/rime/weasel/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/rime/weasel?include_prereleases)|
-|Linux（Debian 11）|[fcitx5-rime](https://github.com/fcitx/fcitx5-rime)|![Debian package](https://img.shields.io/debian/v/fcitx5-rime)|
+|Linux（Debian stable）|[fcitx5-rime](https://github.com/fcitx/fcitx5-rime)|![Debian package](https://img.shields.io/debian/v/fcitx5-rime)|
 |Android 13|[同文（Trime）输入法](https://github.com/osfans/trime/releases)|![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/osfans/trime?include_prereleases)|
 
 [^1]: 国务院关于公布《通用规范汉字表》的通知：国发〔2013〕23 号

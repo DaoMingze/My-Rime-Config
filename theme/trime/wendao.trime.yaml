@@ -6,13 +6,12 @@ name: wendao
 author: dao_mingze
 description: 修改自默认、同文风主题，适配trime3.2.10。
 
-author: &au dao_mingze@163.com
 
 android_keys:
   __include: trime:/android_keys
   
 #变量区
-
+mail: &au dao_mingze@163.com
 ##键盘高度
 height:
   1: &keyboard 44 #键盘高度
@@ -74,7 +73,6 @@ style:
     elevation: 0 #阴影(>=Android5.0)
     #background: background.png #颜色或者backgrounds目录下的图片文档名
     movable: false #是否可移动窗口，或仅移动一次 true|false|once
-    all_phrases: false #显示所有长词
   window: #悬浮窗口组件
     #- {start: "", move: 'ㄓ ', end: ""}
     - {start: "", composition: "%s", end: "", letter_spacing: 0.12} #letter_spacing需要Android5.0
@@ -445,7 +443,7 @@ preset_keyboards:
     - {click: 'v', long_click: paste}
     - {click: 'b', long_click: '?'}
     - {click: 'n', long_click: ChineseDate}
-    - {click: 'm', long_click: '"'}
+    - {click: 'm', long_click: '""{Left}'}
     - {click: BackSpace, width: 15}
     #line 5
     - {click: Schema_switch, long_click: Menu, width: 15}
