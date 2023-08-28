@@ -446,7 +446,7 @@ preset_keyboards:
     - {click: 'm', long_click: '""{Left}'}
     - {click: BackSpace, width: 15}
     #line 5
-    - {click: Schema_switch, long_click: Menu, width: 15}
+    - {click: Tab, label:"⇥", long_click: Menu, width: 15}
     - {click: Keyboard_number, long_click: Theme_settings}
     - {click: ',', long_click: '<'}
     - {click: space, long_click: Mode_switch,width: 30}
