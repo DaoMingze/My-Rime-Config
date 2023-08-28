@@ -1,3 +1,5 @@
+！fcitx5.custom.yaml
+！weasel.custom.yaml
 .DS_Store
 .vscode/
 *.custom.yaml
@@ -7,6 +9,7 @@
 **userdb.txt
 *private*
 build/
+custom_phrase_double.txt
 installation.yaml
 melt_eng_custom.dict.yaml
 others/repo/*
@@ -17,5 +20,3 @@ rime_console
 rime_deployer
 rime_patch
 user.yaml
-！weasel.custom.yaml
-！fcitx5.custom.yaml
