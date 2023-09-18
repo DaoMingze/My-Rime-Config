@@ -2,6 +2,8 @@
 
 除日常更新词库外的一些主要更新 🆕 及破坏性变更 ⚠️。
 
+
+
 ## 2023-08-07 🆕
 
 支持搜狗双拼 [34ab972](https://github.com/iDvel/rime-ice/commit/34ab9725ea9cdf918cbf9f6a4c27d61db7736b07)
@@ -51,7 +53,7 @@
 
 数字、金额大写 [#264](https://github.com/iDvel/rime-ice/issues/264)
 
-- 增加 Lua 脚本 `number_translator.lua`
+- 增加 Lua 脚本 `number_translator.lua` 
 
 ## 2023-05-09 🆕
 
