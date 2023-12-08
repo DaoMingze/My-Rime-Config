@@ -17,15 +17,7 @@ local corrections = {
 	["pi sa"] = { text = "比萨", comment = "bi sa" },
 	["chi pi sa"] = { text = "吃比萨", comment = "chi bi sa" },
 	["pi sa bing"] = { text = "比萨饼", comment = "bi sa bing" },
-	["pu gai"] = { text = "扑街", comment = "pu jie" },
-	["pu gai zai"] = { text = "扑街仔", comment = "pu jie zai" },
-	["gai liu zi"] = { text = "街溜子", comment = "jie liu zi" },
 	["shui fu"] = { text = "说服", comment = "shuo fu" },
-	["zuo ji"] = { text = "坐骑", comment = "zuo qi" },
-	["yi ji jue chen"] = { text = "一骑绝尘", comment = "yi qi jue chen" },
-	["yi ji hong chen fei zi xiao"] = { text = "一骑红尘妃子笑", comment = "yi qi hong chen fei zi xiao" },
-	["qian li zou dan ji"] = { text = "千里走单骑", comment = "qian li zou dan qi" },
-	["yi ji dang qian"] = { text = "一骑当千", comment = "yi qi dang qian" },
 	["dao hang"] = { text = "道行", comment = "dao heng" },
 	["mo yang"] = { text = "模样", comment = "mu yang" },
 	["you mo you yang"] = { text = "有模有样", comment = "you mu you yang" },
@@ -71,14 +63,32 @@ local corrections = {
 	["tiao huan"] = { text = "调换", comment = "diao huan" },
 	["tai xing shan"] = { text = "太行山", comment = "tai hang shan" },
 	["jie si di li"] = { text = "歇斯底里", comment = "xie si di li" },
+	["nuan he"] = { text = "暖和", comment = "nuan huo" },
+	["mo ling liang ke"] = { text = "模棱两可", comment = "mo leng liang ke" },
+	["pan yang hu"] = { text = "鄱阳湖", comment = "po yang hu" },
+	["bo jing"] = { text = "脖颈", comment = "bo geng" },
+	["bo jing er"] = { text = "脖颈儿", comment = "bo geng er" },
+	["jie zha"] = { text = "结扎", comment = "jie za" },
 	-- 错字
+	["pu jie"] = { text = "扑街", comment = "仆街" },
+	["pu gai"] = { text = "扑街", comment = "仆街" },
+	["pu jie zai"] = { text = "扑街仔", comment = "仆街仔" },
+	["pu gai zai"] = { text = "扑街仔", comment = "仆街仔" },
 	["ceng jin"] = { text = "曾今", comment = "曾经" },
 	["an nai"] = { text = "按耐", comment = "按捺(na)" },
 	["an nai bu zhu"] = { text = "按耐不住", comment = "按捺(na)不住" },
-	["bie jie"] = { text = "别介", comment = "别价" },
-	["beng jie"] = { text = "甭介", comment = "甭价" },
+	["bie jie"] = { text = "别介", comment = "别价(jie)" },
+	["beng jie"] = { text = "甭介", comment = "甭价(jie)" },
 	["xue mai pen zhang"] = { text = "血脉喷张", comment = "血脉贲(ben)张 | 血脉偾(fen)张" },
 	["qi ke fu"] = { text = "契科夫", comment = "契诃(he)夫" },
+	["zhao cha"] = { text = "找茬", comment = "找碴" },
+	["zhao cha er"] = { text = "找茬儿", comment = "找碴儿" },
+	["da jia lai zhao cha"] = { text = "大家来找茬", comment = "大家来找碴" },
+	["da jia lai zhao cha er"] = { text = "大家来找茬儿", comment = "大家来找碴儿" },
+	["ci ya"] = { text = "龇牙", comment = "龇(zi)牙" },
+	["ci zhe ya"] = { text = "龇着牙", comment = "龇(zi)着牙" },
+	["ci ya lie zui"] = { text = "龇牙咧嘴", comment = "龇(zi)牙咧嘴" },
+	["cou huo"] = { text = "凑活", comment = "凑合(he)" },
 }
 
 local function corrector(input)
@@ -87,9 +97,7 @@ local function corrector(input)
 		local c = corrections[cand.comment]
 		if c and cand.text == c.text then
 			cand:get_genuine().comment = c.comment
-		elseif cand.type == "reverse_lookup" or cand.type == "unicode" then
-			-- 不处理反查和 Unicode 的 comment
-		else
+		elseif cand.type == "user_phrase" or cand.type == "phrase" or cand.type == "sentence" then
 			cand:get_genuine().comment = ""
 		end
 		yield(cand)
