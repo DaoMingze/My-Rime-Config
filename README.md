@@ -321,6 +321,7 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 git pull https://github.com/tumuyan/rime-melt master --depth=1 --allow-unrelated-histories --no-rebase
 ##手动调整
 git pull https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-histories --no-rebase
+##git pull https://ghproxy.net/https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-histories --no-rebase
 ##手动调整
 ```
 
