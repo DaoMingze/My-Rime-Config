@@ -1,3 +1,7 @@
+---
+title: My-Rime-Config
+---
+
 <div align="center">
 
 # My-Rime-Config
@@ -24,7 +28,7 @@
 
 - fcitx5-rime，`defualt.custom.yaml`在`/home/wdz/.local/share/fcitx5/rime/`
 
-```
+```cmd
 rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
 ```
 
@@ -220,13 +224,10 @@ apt install wget
 - `fonts/`，**空文件夹**，用来存放字库文件，详见 [字体](#字体)一节
 - `lua/`，详见 [lua 脚本](#lua-脚本)一节
 - `opencc/`，由 [OpenCC](https://github.com/BYVoid/OpenCC) 提供简繁转换，[融合拼音](https://github.com/tumuyan/rime-melt) 提供拼音滤镜，[雾凇拼音](https://github.com/iDvel/rime-ice) 提供`Emoji`滤镜。
-
-###### 待完成
-
 - `default.custom.yaml`，启用方案记录，**空文件**
 - 符号修改，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
 
-###### 字体
+##### 字体
 
 多平面字体
 
@@ -340,7 +341,7 @@ git pull https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-hist
 
 ③ 使用东风破（plum）
 
-```
+```cmd
 rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
 ```
 

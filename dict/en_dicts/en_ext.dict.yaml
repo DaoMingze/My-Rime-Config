@@ -7,7 +7,7 @@
 #
 ---
 name: en_ext
-version: "2023-11-29"
+version: "2024-01-02"
 sort: by_weight
 ...
 # 一些杂项
@@ -432,7 +432,6 @@ WYSIWYG	WYSIWYG
 What You See Is What You Get	WYSIWYG
 Mark Text	MarkText
 Joplin	Joplin
-obsidian	obsidian
 SteamOS	SteamOS
 TikTok	TikTok
 IDC	IDC
@@ -487,7 +486,6 @@ IntelliJ	IntelliJ
 IntelliJ IDEA	IntelliJIDEA
 IntelliJ IDEA Community	IntelliJIDEACommunity
 IntelliJ IDEA Ultimate	IntelliJIDEAUltimate
-IDEA	IDEA
 IDEA Community	IDEACommunity
 IDEA Ultimate	IDEAUltimate
 IDE	IDE
@@ -835,7 +833,6 @@ PlistEdit	pliPlistEdit
 PopClip	PopClip
 PowerPack	PowerPack
 Privoxy	Privoxy
-Pro	Pro
 Promotee	Promotee
 Proxifier	Proxifier
 Public Beta	PublicBeta
@@ -2265,7 +2262,6 @@ medallion	medallion
 add-on	add-on
 add-ons	add-ons
 C#	C#
-C#	Csharp
 decode	decode
 KeyCastr	KeyCastr
 Laugh Tale	LaughTale
@@ -2380,3 +2376,25 @@ silicones	silicones
 GPTs	GPTs
 sider	sider
 DALL·E	DALL·E
+keychain	keychain
+keychains	keychains
+guile	guile
+e.g.	e.g.
+i.e.	i.e.
+et al.	etal.
+Zettlr	Zettlr
+Codium	Codium
+CodiumAI	CodiumAI
+SaaS	SaaS
+Software as a service	SaaS
+gitignore	gitignore
+.gitignore	.gitignore
+humankind	humankind
+Alita	Alita
+epoll	epoll
+kqueue	kqueue
+LangChain	LangChain
+LangServe	LangServe
+LangSmith	LangSmith
+runc	runc
+containerd	containerd
