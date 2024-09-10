@@ -41,6 +41,13 @@ rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
 - forked [Rime-melt，融合拼音](https://github.com/tumuyan/rime-melt)![GitHub license](https://img.shields.io/github/license/tumuyan/rime-melt)
 - merged [Rime-ice，雾凇拼音](https://github.com/iDvel/rime-ice)![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)
 
+```bash
+mkdir raw
+cd raw
+git submodule add https://github.com/tumuyan/rime-melt
+git submodule add https://github.com/iDvel/rime-ice
+```
+
 参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
 
 部分配置参考 [rime-ice-custom](https://github.com/someok/rime-ice-custom)
@@ -208,6 +215,14 @@ apt install wget
 
 ### 分类说明
 
+```bash
+curl -OL https://github.com/rime/rime-prelude/raw/master/symbols.yaml
+curl -OL https://github.com/rime/rime-essay/raw/master/essay.txt
+# curl -OL https://ci.appveyor.com/api/projects/Carbo/opencc/artifacts/OpenCC.zip?branch=master&job=Environment:%20nodejs_version=none;%20Platform:%20x64 | 7z e .\OpenCC.zip "-oopencc" "-ir!build\share\opencc\*"
+# osfans/trime develop:app/src/main/assets/shared/opencc
+
+```
+
 #### Basic：基础与支持文件
 
 来自 [rime-prelude](https://github.com/rime/rime-prelude)，更新方式：拉取（git pull）
@@ -219,13 +234,30 @@ apt install wget
 
 `essay.txt`，八股文，预设词汇表和语言模型。来自 [rime-easay](https://github.com/rime/rime-essay)，更新方式：拉取（git pull）
 
-文件夹
+##### 文件夹
 
 - `fonts/`，**空文件夹**，用来存放字库文件，详见 [字体](#字体)一节
 - `lua/`，详见 [lua 脚本](#lua-脚本)一节
 - `opencc/`，由 [OpenCC](https://github.com/BYVoid/OpenCC) 提供简繁转换，[融合拼音](https://github.com/tumuyan/rime-melt) 提供拼音滤镜，[雾凇拼音](https://github.com/iDvel/rime-ice) 提供`Emoji`滤镜。
 - `default.custom.yaml`，启用方案记录，**空文件**
 - 符号修改，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
+
+###### opencc更新词典文件
+
+进入[OpenCC/data](https://github.com/BYVoid/OpenCC/tree/master/data)使用`OpenCC/data/config/*.json`和`OpenCC/data/dictionary/*.txt`替换本文件夹中的相关文件
+
+`OpenCC/data/config/*.json`文件默认匹配的是.ocd2文件（"type": "ocd2", "file": "TSPhrases.ocd2"）
+
+1. 替换为txt
+2. 下载[opencc预编译包](https://ci.appveyor.com/api/projects/Carbo/opencc/artifacts/OpenCC.zip?branch=master&job=Environment:%20nodejs_version=none;%20Platform:%20x64)
+
+以下文件由部分词典文件进一步操作产生, 需要手动处理或使用 OpenCC 脚本处理
+
+- HKVariantsRev.txt 由 HKVariants.txt 反转列产生
+- JPVariantsRev.txt 由 JPVariants.txt 反转列产生
+- TWPhrases.txt 由 TWPhrasesIT.txt TWPhrasesName.txt TWPhrasesOther.txt 合并产生
+- TWPhrasesRev.txt 由 TWPhrases.txt 反转列产生
+- TWVariantsRev.txt 由 TWVariants.txt 反转列产生
 
 ##### 字体
 
