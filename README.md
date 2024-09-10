@@ -20,11 +20,11 @@ title: My-Rime-Config
 >
 >英文说明尚未更新（the README_en.md is outdated.）
 >
-> wget获取辞典文件脚本还在调试中
-> liangfen自定义配置还在调试中
-> 目前lua脚本完全套用自雾凇拼音，还在自定义修改中
+> wget 获取辞典文件脚本还在调试中
+> liangfen 自定义配置还在调试中
+> 目前 lua 脚本完全套用自雾凇拼音，还在自定义修改中
 
-调整期间使用雾凇拼音，并参考[someok/rime-ice-custom](https://github.com/someok/rime-ice-custom)
+调整期间使用雾凇拼音，并参考 [someok/rime-ice-custom](https://github.com/someok/rime-ice-custom)
 
 - fcitx5-rime，`defualt.custom.yaml`在`/home/wdz/.local/share/fcitx5/rime/`
 
@@ -225,33 +225,33 @@ curl -OL https://github.com/rime/rime-essay/raw/master/essay.txt
 
 #### Basic：基础与支持文件
 
-来自 [rime-prelude](https://github.com/rime/rime-prelude)，更新方式：拉取（git pull）
+主要来自 [rime-prelude](https://github.com/rime/rime-prelude) 和 [雾凇拼音](https://github.com/iDvel/rime-ice)
 
 - `default.yaml`，缺省配置文件，【有修改】根据雾凇拼音增加相关项注释
 - `key_bindings.yaml`，键位绑定配置
 - `punctuation.yaml`，全半角转换符号配置
 - `symbols.yaml`，符号配置
-
-`essay.txt`，八股文，预设词汇表和语言模型。来自 [rime-easay](https://github.com/rime/rime-essay)，更新方式：拉取（git pull）
+- `essay.txt`，八股文，预设词汇表和语言模型。来自 [rime-easay](https://github.com/rime/rime-essay)，更新方式：拉取（git pull）
+- `zh-hans-t-essay-bgc.gram`和`zh-hans-t-essay-bgw.gram`都是根据 [八股文（語法）](https://github.com/lotem/rime-octagram-data) 生成的语法配置文件
+- `default.custom.yaml`，启用方案记录，**空文件**
+- 符号修改，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
 
 ##### 文件夹
 
 - `fonts/`，**空文件夹**，用来存放字库文件，详见 [字体](#字体)一节
 - `lua/`，详见 [lua 脚本](#lua-脚本)一节
 - `opencc/`，由 [OpenCC](https://github.com/BYVoid/OpenCC) 提供简繁转换，[融合拼音](https://github.com/tumuyan/rime-melt) 提供拼音滤镜，[雾凇拼音](https://github.com/iDvel/rime-ice) 提供`Emoji`滤镜。
-- `default.custom.yaml`，启用方案记录，**空文件**
-- 符号修改，在 `symbols.yaml`全角 → 多个相似符号中，插入部分常用半角符号（圆括号、方括号）
 
-###### opencc更新词典文件
+###### opencc 更新词典文件
 
-进入[OpenCC/data](https://github.com/BYVoid/OpenCC/tree/master/data)使用`OpenCC/data/config/*.json`和`OpenCC/data/dictionary/*.txt`替换本文件夹中的相关文件
+进入 [OpenCC/data](https://github.com/BYVoid/OpenCC/tree/master/data) 使用`OpenCC/data/config/*.json`和`OpenCC/data/dictionary/*.txt`替换本文件夹中的相关文件
 
-`OpenCC/data/config/*.json`文件默认匹配的是.ocd2文件（"type": "ocd2", "file": "TSPhrases.ocd2"）
+`OpenCC/data/config/*.json`文件默认匹配的是。ocd2 文件（"type": "ocd2", "file": "TSPhrases.ocd2"）
 
-1. 替换为txt
-2. 下载[opencc预编译包](https://ci.appveyor.com/api/projects/Carbo/opencc/artifacts/OpenCC.zip?branch=master&job=Environment:%20nodejs_version=none;%20Platform:%20x64)
+1. 替换为 txt
+2. 下载 [opencc 预编译包](https://ci.appveyor.com/api/projects/Carbo/opencc/artifacts/OpenCC.zip?branch=master&job=Environment:%20nodejs_version=none;%20Platform:%20x64)
 
-以下文件由部分词典文件进一步操作产生, 需要手动处理或使用 OpenCC 脚本处理
+以下文件由部分词典文件进一步操作产生，需要手动处理或使用 OpenCC 脚本处理
 
 - HKVariantsRev.txt 由 HKVariants.txt 反转列产生
 - JPVariantsRev.txt 由 JPVariants.txt 反转列产生
