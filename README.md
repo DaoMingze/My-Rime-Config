@@ -338,7 +338,7 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 
 - `wendao.trime.yaml`，自定义。用于 Trime。
 - `trime.yaml`，缺省主题，提取自 [Trime](https://github.com/osfans/trime)。用于 Trime。
-- `weasel.custom.yaml`，用于小狼毫。
+- `weasel.custom.yaml`，用于小狼毫。可参考[owlzou的小狼毫主题编辑器](https://owlzou.github.io/weasel-theme-editor/)。
 
 #### Other
 
@@ -350,12 +350,15 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 
 ### 拉取词库
 
+使用子模块方法
+
 ```bash
-git pull https://github.com/tumuyan/rime-melt master --depth=1 --allow-unrelated-histories --no-rebase
-##手动调整
-git pull https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-histories --no-rebase
-##git pull https://ghproxy.net/https://github.com/iDvel/rime-ice main --depth=1 --allow-unrelated-histories --no-rebase
-##手动调整
+#添加子模块到指定路径
+git submodule add https://github.com/tumuyan/rime-melt raw/rime-melt
+git submodule add https://github.com/iDvel/rime-ice raw/rime-ice
+#更新子模块
+git submodule update --remote
+#手动调整
 ```
 
 ### 下载

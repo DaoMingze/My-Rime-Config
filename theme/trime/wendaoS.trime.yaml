@@ -1,15 +1,11 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "1.39"
+config_version: "1.5"
 name: wendaoS
 author: dao_mingze
-description: 修改自默认、同文风主题，适配trime3.2.10。
+description: 修改自默认、同文风主题，适配trime3.3.1。
 
-
-android_keys:
-  __include: trime:/android_keys
-  
 #变量区
 mail: &au dao_mingze@163.com
 ##键盘高度
@@ -21,16 +17,16 @@ round_corner:
   1: &round1 12 #按键圆角半径
   2: &round2 0 #候选窗口圆角
   3: &round3 12 #回车键圆角
-  
+
 #样式区
 style:
   auto_caps: false #自动句首大写:true|false|ascii
   background_dim_amount: 0.5
-  #root_background: keyboard_back_color # 整个键盘区+候选栏的背景图/色
-  candidate_font: han.ttf  #候选字体
-  candidate_padding: 4  #候选项内边距
-  candidate_spacing: 0.5  #候选间距
-  candidate_text_size: 14  #候选字号
+  root_background: keyboard_back_color # 整个键盘区+候选栏的背景图/色
+  candidate_font: han.ttf #候选字体
+  candidate_padding: 4 #候选项内边距
+  candidate_spacing: 0.5 #候选间距
+  candidate_text_size: 14 #候选字号
   candidate_use_cursor: true #高亮候选项
   candidate_view_height: 20 #候选区高度
   color_scheme: default #配色方案
@@ -41,12 +37,6 @@ style:
   hanb_font: hanb.ttf #扩充字体
   horizontal: true #水平模式
   horizontal_gap: *hgap #按键水平间距
-  keyboard_padding: 0 #竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
-  #keyboard_padding_left: 0 #竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
-  #keyboard_padding_right: 40 #竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
-  #keyboard_padding_bottom: 0 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
-  keyboard_padding_land: 40 #横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
-  #keyboard_padding_land_bottom: 0 #横屏模式下，屏幕下侧与键盘的距离
   layout: #悬浮窗口设置
     position: fixed #位置：left|right|left_up|right_up|fixed|bottom_left|bottom_right|top_left|top_right(left、right需要>=Android5.0)
     min_length: 4 #最小词长
@@ -56,14 +46,13 @@ style:
     max_entries: 10 #候选窗口最大词条数
     min_check: 3 #只要前n个候选词有长度大于等于min_length的词，就会把长度符合以及之前的词全部加到悬浮窗内。
     all_phrases: false #所有满足条件的词语都显示在窗口
-    border: 2 #边框宽度
+    border: 0 #边框宽度
     max_width: 360 #最大宽度，超过则自动换行
     max_height: 460 #最大高度
     min_width: 0 #最小宽度
     min_height: 50 #最小高度
     margin_x: 5 #水平边距 NOTE: margin_{x, y, bottom} 实际为 padding
     margin_y: 5 #竖直边距
-    margin_bottom: 0 #底部边距 （用于适配特定背景图）
     line_spacing: 0 #候选词的行间距(px)
     line_spacing_multiplier: 1.2 #候选词的行间距(倍数)
     real_margin: 3 #屏幕左右边缘和悬浮窗之间的距离 TODO: 在 4.0 时给 real_margin 与 spacing 换一个更适合的名字
@@ -71,12 +60,19 @@ style:
     round_corner: *round2 #候选窗口圆角
     alpha: 0xff #透明度(0-255)
     elevation: 0 #阴影(>=Android5.0)
-    #background: background.png #颜色或者backgrounds目录下的图片文档名
+    background: background.png #颜色或者backgrounds目录下的图片文档名
     movable: false #是否可移动窗口，或仅移动一次 true|false|once
   window: #悬浮窗口组件
     #- {start: "", move: 'ㄓ ', end: ""}
-    - {start: "", composition: "%s", end: "", letter_spacing: 0.12} #letter_spacing需要Android5.0
-    - {start: "\n", label: "%s.", candidate: "%s", comment: "%s", end: "", sep: "☁️️"}
+    - { start: "", composition: "%s", end: "", letter_spacing: 0.12 } #letter_spacing需要Android5.0
+    - {
+        start: "\n",
+        label: "%s.",
+        candidate: "%s",
+        comment: "%s",
+        end: "",
+        sep: "☁️️",
+      }
   key_font: symbol.ttf #键盘字体
   key_height: *keyboard #键高
   key_long_text_size: 14 #长标签字号
@@ -88,8 +84,8 @@ style:
   latin_font: latin.ttf #西文本体
   latin_locale: en_US #西文语言
   locale: zh_CN #缺省语言 zh_TW,zh_CN,zh_HK,""
-  #keyboard_height: 250 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
-  #keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height: 250 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
   preview_font: latin.ttf #按键提示字体
   preview_height: 56 #按键提示高度
   preview_offset: -32 #按键提示纵向偏移
@@ -106,23 +102,21 @@ style:
   text_size: 14 #编码区字号
   vertical_correction: -5
   vertical_gap: *hgap #键盘行距
-  long_text_font: comment.ttf #剪贴板等可能包含大段文本使用的字体
-  #background_folder: #背景图保存在background目录下的哪个子目录
-  key_long_text_border: 1
-  enter_label_mode: 0  #是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
-  enter_labels:  # 定义Enter键的文本
+  enter_label_mode: 0 #是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
+  enter_labels: # 定义Enter键的文本
     go: 前往
     done: 完成
     next: 下个
-    pre:  上个
+    pre: 上个
     search: 🔍
     send: 发送
-    default: ⏎   # 定义默认Enter键的文本
+    default: ⏎ # 定义默认Enter键的文本
 
+#回滚配色
 fallback_colors:
-  __include: trime:/fallback_colors
-  
-#配色方案
+  candidate_text_color: text_color
+
+#预设配色方案
 preset_color_schemes:
   default:
     name: 缺省／default #方案名称
@@ -180,44 +174,83 @@ liquid_keyboard:
   # 目前只能直接写参数，不支持变量或者fallback机制。
   # 缺少参数时，自动从style中加载参数。除非需要指定liquid_keyboard使用与主键盘不同的背景色、背景图，否则不应设置被注释掉的参数。
   author: "tumuyan"
-  #row: 6              #每屏最多显示多少行按键
-  #row_land: 5         #横屏每屏最多显示多少行按键
-  key_height: *keyboard     #按键高度
+  row: 6 #每屏最多显示多少行按键
+  row_land: 5 #横屏每屏最多显示多少行按键
+  key_height: 40 #按键高度
   key_height_land: 40 #横屏模式按键高度
-  single_width: 60    #single类型的按键宽度
-  vertical_gap: *sgap     #纵向按键间隙
-  margin_x: *hgap       #左右按键间隙的1/2
-  keyboards: [emoji, math, ascii, cn, history, clipboard, draft, list, tabs, exit, ids , jp, table, symbol, pinyin, grease, rusa, korea, lation, yinbiao, unit,  exit]  #tab列表
-  exit:
-    name: 返回
-    type: NO_KEY
-    keys: EXIT
+  single_width: 60 #single类型的按键宽度
+  vertical_gap: 8 #纵向按键间隙
+  margin_x: 2 #左右按键间隙的1/2
+  fixed_key_bar: # 固定按键条
+    position: bottom # 摆放位置（在滚动区域的……） top|bottom|left|right
+    keys: # 按键（显示名称为对应的label，不能放太多）
+      - liquid_keyboard_exit
+      - space1
+      - BackSpace
+      - Return2
+      - liquid_keyboard_clipboard
+      - liquid_keyboard_tabs
+  keyboards: [
+      emoji,
+      math,
+      ascii,
+      cn,
+      history,
+      clipboard,
+      collection,
+      draft,
+      symbollist,
+      list,
+      ids,
+      symbol,
+      tabs,
+      pinyin,
+      script_symbols,
+      jp,
+      grease,
+      rusa,
+      korea,
+      lation,
+      yinbiao,
+      unit,
+      yanwenzi,
+      combing,
+      emoji_full,
+      candidate,
+    ] #tab列表
   tabs:
     name: 更多
     type: TABS
-  new:
-    name: 新行 #此类型不显示在候选栏中，但是打开“更多”TAB时，下一个按键会换行
-    type: NEW_ROW
+  candidate:
+    name: 候选
+    type: CANDIDATE
   history:
     name: 常用
     type: HISTORY
   emoji:
     type: SINGLE
-    keys: "🙂😂🤣😆🙃😅🙈🙉🙊☹😑😄🤐😨😱🌚🌝🤔❤💔♡🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
+    keys: "🙂😂🤣😆🙃😅🥺😎👀🙈🙉🙊☹😑😄🤐😨😱🌚🌝🤔❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
+  emoji_full:
+    type: SINGLE
+    name: 全emoji
+    keys: "😀😃😄😁😆😅🤣😂🙂🙃🫠😉😊😇🥰😍🤩😘😗☺😚😙🥲😋😛😜🤪😝🤑🤗🤭🫢🫣🤫🤔🫡🤐🤨😐😑😶🫥😏😒🙄😬🤥😌😔😪🤤😴😷🤒🤕🤢🤮🤧🥵🥶🥴😵🤯🤠🥳🥸😎🤓🧐😕🫤😟🙁☹😮😯😲😳🥺🥹😦😧😨😰😥😢😭😱😖😣😞😓😩😫🥱😤😡😠🤬😈👿💀☠💩🤡👹👺👻👽👾🤖😺😸😹😻😼😽🙀😿😾🙈🙉🙊💌💘💝💖💗💓💞💕💟❣💔❤🧡💛💚💙💜🤎🖤🤍💋💯💢💥💫💦💨🕳💬🗨🗯💭💤👋🤚🖐✋🖖🫱🫲🫳🫴👌🤌🤏✌🤞🫰🤟🤘🤙👈👉👆🖕👇☝🫵👍👎✊👊🤛🤜👏🙌🫶👐🤲🤝🙏✍💅🤳💪🦾🦿🦵🦶👂🦻👃🧠🫀🫁🦷🦴👀👁👅👄🫦👶🧒👦👧🧑👱👨🧔👩🧓👴👵🙍🙎🙅🙆💁🙋🧏🙇🤦🤷👮🕵💂🥷👷🫅🤴👸👳👲🧕🤵👰🤰🫃🫄🤱👼🎅🤶🦸🦹🧙🧚🧛🧜🧝🧞🧟🧌💆💇🚶🧍🧎🏃💃🕺🕴👯🧖🧗🤺🏇⛷🏂🏌🏄🚣🏊⛹🏋🚴🚵🤸🤼🤽🤾🤹🧘🛀🛌👭👫👬💏💑👪🗣👤👥🫂👣🏻🏼🏽🏾🏿🦰🦱🦳🦲🐵🐒🦍🦧🐶🐕🦮🐩🐺🦊🦝🐱🐈🦁🐯🐅🐆🐴🐎🦄🦓🦌🦬🐮🐂🐃🐄🐷🐖🐗🐽🐏🐑🐐🐪🐫🦙🦒🐘🦣🦏🦛🐭🐁🐀🐹🐰🐇🐿🦫🦔🦇🐻🐨🐼🦥🦦🦨🦘🦡🐾🦃🐔🐓🐣🐤🐥🐦🐧🕊🦅🦆🦢🦉🦤🪶🦩🦚🦜🐸🐊🐢🦎🐍🐲🐉🦕🦖🐳🐋🐬🦭🐟🐠🐡🦈🐙🐚🪸🐌🦋🐛🐜🐝🪲🐞🦗🪳🕷🕸🦂🦟🪰🪱🦠💐🌸💮🪷🏵🌹🥀🌺🌻🌼🌷🌱🪴🌲🌳🌴🌵🌾🌿☘🍀🍁🍂🍃🪹🪺🍄🍇🍈🍉🍊🍋🍌🍍🥭🍎🍏🍐🍑🍒🍓🫐🥝🍅🫒🥥🥑🍆🥔🥕🌽🌶🫑🥒🥬🥦🧄🧅🥜🫘🌰🍞🥐🥖🫓🥨🥯🥞🧇🧀🍖🍗🥩🥓🍔🍟🍕🌭🥪🌮🌯🫔🥙🧆🥚🍳🥘🍲🫕🥣🥗🍿🧈🧂🥫🍱🍘🍙🍚🍛🍜🍝🍠🍢🍣🍤🍥🥮🍡🥟🥠🥡🦀🦞🦐🦑🦪🍦🍧🍨🍩🍪🎂🍰🧁🥧🍫🍬🍭🍮🍯🍼🥛☕🫖🍵🍶🍾🍷🍸🍹🍺🍻🥂🥃🫗🥤🧋🧃🧉🧊🥢🍽🍴🥄🔪🫙🏺🌍🌎🌏🌐🗺🗾🧭🏔⛰🌋🗻🏕🏖🏜🏝🏞🏟🏛🏗🧱🪨🪵🛖🏘🏚🏠🏡🏢🏣🏤🏥🏦🏨🏩🏪🏫🏬🏭🏯🏰💒🗼🗽⛪🕌🛕🕍⛩🕋⛲⛺🌁🌃🏙🌄🌅🌆🌇🌉♨🎠🛝🎡🎢💈🎪🚂🚃🚄🚅🚆🚇🚈🚉🚊🚝🚞🚋🚌🚍🚎🚐🚑🚒🚓🚔🚕🚖🚗🚘🚙🛻🚚🚛🚜🏎🏍🛵🦽🦼🛺🚲🛴🛹🛼🚏🛣🛤🛢⛽🛞🚨🚥🚦🛑🚧⚓🛟⛵🛶🚤🛳⛴🛥🚢✈🛩🛫🛬🪂💺🚁🚟🚠🚡🛰🚀🛸🛎🧳⌛⏳⌚⏰⏱⏲🕰🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦🌑🌒🌓🌔🌕🌖🌗🌘🌙🌚🌛🌜🌡☀🌝🌞🪐⭐🌟🌠🌌☁⛅⛈🌤🌥🌦🌧🌨🌩🌪🌫🌬🌀🌈🌂☂☔⛱⚡❄☃⛄☄🔥💧🌊🎃🎄🎆🎇🧨✨🎈🎉🎊🎋🎍🎎🎏🎐🎑🧧🎀🎁🎗🎟🎫🎖🏆🏅🥇🥈🥉⚽⚾🥎🏀🏐🏈🏉🎾🥏🎳🏏🏑🏒🥍🏓🏸🥊🥋🥅⛳⛸🎣🤿🎽🎿🛷🥌🎯🪀🪁🎱🔮🪄🎮🕹🎰🎲🧩🧸🪅🪩🪆♠♥♦♣♟🃏🀄🎴🔫🎭🖼🎨🧵🪡🧶🪢👓🕶🥽🥼🦺👔👕👖🧣🧤🧥🧦👗👘🥻🩱🩲🩳👙👚👛👜👝🛍🎒🩴👞👟🥾🥿👠👡🩰👢👑👒🎩🎓🧢🪖⛑📿💄💍💎🔇🔈🔉🔊📢📣📯🔔🔕🎼🎵🎶🎙🎚🎛🎤🎧📻🎷🪗🎸🎹🎺🎻🪕🥁🪘📱📲☎📞📟📠🔋🪫🔌💻🖥🖨⌨🖱🖲💽💾💿📀🧮🎥🎞📽🎬📺📷📸📹📼🔍🔎🕯💡🔦🏮🪔📔📕📖📗📘📙📚📓📒📃📜📄📰🗞📑🔖🏷💰🪙💴💵💶💷💸💳🧾💹✉📧📨📩📤📥📦📫📪📬📭📮🗳✏✒🖋🖊🖌🖍📝💼📁📂🗂📅📆🗒🗓📇📈📉📊📋📌📍📎🖇📏📐✂🗃🗄🗑🔒🔓🔏🔐🔑🗝💣🔨🪓⛏⚒🛠🗡⚔🪃🏹🛡🪚🔧🪛🔩⚙🗜⚖🦯🔗⛓🪝🧰🧲🪜⚗🧪🧫🧬🔬🔭📡💉🩸💊🩹🩼🩺🩻🚪🛗🪞🪟🛏🛋🪑🚽🪠🚿🛁🪤🪒🧴🧷🧹🧺🧻🪣🧼🫧🪥🧽🧯🛒🧿🪬🚬⚰🪦⚱🗿🪧🪪🏧🚮🚰♿🚹🚺🚻🚼🚾🛂🛃🛄🛅⚠🚸⛔🚫🚳🚭🚯🚱🚷📵🔞☢☣⬆↗➡↘⬇↙⬅↖↕↔↩↪⤴⤵🔃🔄🔙🔚🔛🔜🔝🛐⚛🕉✡☸☯✝☦☪☮🕎🔯♈♉♊♋♌♍♎♏♐♑♒♓⛎🔀🔁🔂▶⏩⏭⏯◀⏪⏮🔼⏫🔽⏬⏸⏹⏺⏏🎦🔅🔆📶📳📴♀♂⚧✖➕➖➗🟰♾‼⁉❓❔❕❗〰💱💲⚕♻⚜🔱📛🔰⭕✅☑✔❌❎➰➿〽✳✴❇©®™🔟🔠🔡🔢🔣🔤🅰🆎🅱🆑🆒🆓ℹ🆔Ⓜ🆕🆖🅾🆗🅿🆘🆙🆚🈁🈂🈷🈶🈯🉐🈹🈚🈲🉑🈸🈴🈳㊗㊙🈺🈵🔴🟠🟡🟢🔵🟣🟤⚫⚪🟥🟧🟨🟩🟦🟪🟫⬛⬜◼◻◾◽▪▫🔶🔷🔸🔹🔺🔻💠🔘🔳🔲🏁🚩🎌🏴🏳"
   clipboard:
     type: CLIPBOARD
     name: 剪贴
+  collection:
+    type: COLLECTION
+    name: 收藏
   draft:
     type: DRAFT
     name: 草稿
-  math:   #tab名称
+  math: #tab名称
     type: SINGLE
     name: 数学
-    keys: "≈＝≠≌<>≤≥≡()[]{}-+±×*/÷&∥%‰‱°′″∫∮∯∬∭∰∞∑∧∏∈∵∴⊥∝∨∪•√〒∝∽∈∩∧⊙⌒∥∟∣∂∆∞≌∉∪∨⊕⊿⊥∠∫∬∭"  #tab中的按键列表
+    keys: "≈＝≠≌<>≤≥≡()[]{}-+±×*/÷&∥%‰‱°′″∫∮∯∬∭∰∞∑∧∏∈∵∴⊥∝∨∪•√〒∝∽∈∩∧⊙⌒∥∟∣∂∆∞≌∉∪∨⊕⊿⊥∠∫∬∭" #tab中的按键列表
   cn:
     type: SINGLE
     name: 中文
-    keys:  #keys列表可以使用多种格式混合书写。
+    keys: #keys列表可以使用多种格式混合书写。
       - ，
       - 。
       - ？
@@ -250,7 +283,7 @@ liquid_keyboard:
   symbol:
     name: 特殊
     type: SINGLE
-    keys: "△▽○◇□☆▲▼●◆■★▷◁▶◀♻♲†⚝✡⚹✦✸✹￼�×⌫☑☒✅❎✔✘✓✗☼☽♀☻◐㏂☀☾♂☹◑㏘☜☝☞☚☟☛▪•‥…∷※♩♪♫♬§°♭♯♮‖¶№◎¤۞℗®©卍卐℡™㏇Φ↖↑↗◤㊤◥←↔→㊧㊥㊨↙↓↘◣㊦◢⇄⇅⇆⇤↩⇥❏❐◲〼▢▣⇦⇧⇨⇩⇪↶▸◂▴▾✁↷✍⏍ϟ📝✎✆☱☰☴⚿⛮⚙☲☯☵⛶☩☐☳☷☶💬🗨⟲ღ✈☂🎤🌐🔍"
+    keys: "△▽○◇□☆▲▼●◆■★▷◁▶◀♻♲†⚝✡⚹✦✸✹￼�×⌫☑☒✅❎✔✘✓✗☀☼☽☾◑◐㏂㏘☭♀♂☹☻☠☜☝☞☚☟☛▪•‥…∷※♩♪♫♬§°♭♯♮‖¶№◎¤۞℗®©卍卐℡™㏇Φ⇦⇧⇨⇩⇪↖↑↗←↔→↙↓↘⇄⇅⇆⇤↩⇥▸◂▴▾◤◥◣◢㊤㊧㊥㊨㊦❏❐◲〼▢▣↶✁↷✍⏍ϟ📝✎✆☱☰☴⚿⛮⚙☲☯☵⛶☩☐☳☷☶💬🗨⟲ღ✈☂🎤🌐🔍"
   unit:
     name: 单位
     type: SINGLE
@@ -263,6 +296,10 @@ liquid_keyboard:
     name: 拼音
     type: SINGLE
     keys: "āáǎàōóēéěèǒòīíǐìūúǖǘǚǜǔùêüńňㄚㄛㄜㄧㄨㄩㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙ"
+  script_symbols:
+    name: 𝒶𝒜
+    type: SINGLE
+    keys: "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵"
   grease:
     type: SINGLE
     name: 希腊
@@ -282,7 +319,208 @@ liquid_keyboard:
   yinbiao:
     type: SINGLE
     name: "音标"
-    keys: ["a:", "ɔ:", "ɜː", "i:", "u:", "ʌ", "ɒ", "ə", "ɪ", "ʊ", "e", "æ", "eɪ", "aɪ", "ɔɪ", "ɪə", "eə", "ʊə", "əʊ", "aʊ", "p", "t", "k", "f", "θ", "s", "b", "d", "g", "v", "ð", "z", "ʃ", "h", "ts", "tʃ", "j", "tr", "ʒ", "r", "dz", "dʒ", "dr", "w", "m", "n", "ŋ", "l"]
+    keys:
+      [
+        "a:",
+        "ɔ:",
+        "ɜː",
+        "i:",
+        "u:",
+        "ʌ",
+        "ɒ",
+        "ə",
+        "ɪ",
+        "ʊ",
+        "e",
+        "æ",
+        "eɪ",
+        "aɪ",
+        "ɔɪ",
+        "ɪə",
+        "eə",
+        "ʊə",
+        "əʊ",
+        "aʊ",
+        "p",
+        "t",
+        "k",
+        "f",
+        "θ",
+        "s",
+        "b",
+        "d",
+        "g",
+        "v",
+        "ð",
+        "z",
+        "ʃ",
+        "h",
+        "ts",
+        "tʃ",
+        "j",
+        "tr",
+        "ʒ",
+        "r",
+        "dz",
+        "dʒ",
+        "dr",
+        "w",
+        "m",
+        "n",
+        "ŋ",
+        "l",
+      ]
+  yanwenzi:
+    type: VAR_LENGTH
+    name: "颜文字"
+    keys:
+      [
+        "⎛⎝≥⏝⏝≤⎠⎞",
+        "^_^",
+        "^ω^",
+        "^o^",
+        "~\\(≧▽≦)/~",
+        "*^_^*",
+        "↖(^ω^)↗",
+        "(^o^)／",
+        "(=^▽^=)",
+        "=^_^=",
+        "(*^ω^*)",
+        "٩(๑^o^๑)۶",
+        "o(￣▽￣)o",
+        "Y(^_^)Y",
+        "٩( 'ω' )و",
+        "╰(*´︶`*)╯",
+        "*罒▽罒*",
+        "ヾ ^_^♪",
+        "=￣ω￣=",
+        "︿(￣︶￣)︿",
+        "(´▽｀)ノ♪",
+        "乁( ˙ ω˙乁)",
+        "✧*｡٩(ˊωˋ*)و✧*｡",
+        "～(￣▽￣～)(～￣▽￣)～",
+        "QwQ",
+        "(●—●)",
+        "(๑• . •๑)",
+        "ヾ(≧O≦)〃嗷~",
+        "罒ω罒",
+        "(｡ì _ í｡)",
+        "(๑•ี_เ•ี๑)",
+        "ㄟ(≧◇≦)ㄏ",
+        "(*/ω＼*)",
+        "●▽●",
+        "٩(๑òωó๑)۶",
+        "✺◟(∗❛ัᴗ❛ั∗)◞✺",
+        "( σ'ω')σ",
+        "♡＾▽＾♡",
+        "(๑•̀ㅂ•́)و✧",
+        "(ง •̀_•́)ง",
+        "(｡･ω･｡)ﾉ♡",
+        "(☆_☆)",
+        "(๑°3°๑)",
+        "_(•̀ω•́ 」∠)_",
+        "♪～(´ε｀　)",
+        "～(^з^)-☆",
+        "(´∀｀)♡",
+        "ლ(´ڡ`ლ)",
+        "(＞﹏＜)",
+        "T_T",
+        "⊙︿⊙",
+        "〒▽〒",
+        "⊙﹏⊙",
+        "π_π",
+        "(｡•́︿•̀｡)",
+        "(ToT)/~~~",
+        "╯﹏╰",
+        "ಥ_ಥ",
+        "(╥╯^╰╥)",
+        "(〃′o`)",
+        "●﹏●",
+        "( •̥́ ˍ •̀ू )",
+        "(つд⊂)",
+        "心塞(´-ωก`)",
+        "(╥﹏╥)",
+        "┭┮﹏┭┮",
+        "（；´д｀）ゞ",
+        "(´;︵;`)",
+        "(。﹏。)",
+        "┗( T﹏T )┛",
+        "QAQ",
+        "ヘ(_ _ヘ)",
+        "╰（‵□′）╯",
+        "(*￣︿￣)",
+        ">o<",
+        "(-`ェ´-怒)",
+        "ヽ(‘⌒´メ)ノ",
+        "(*｀Ω´*)v",
+        "(｡•ˇ‸ˇ•｡)",
+        "(怒｀Д´怒)",
+        "٩(๑`^´๑)۶",
+        "(;｀O´)o",
+        "╰_╯",
+        "(#｀皿´)<怒怒怒!!!",
+        "<(｀^´)>",
+        "（｀Δ´）！",
+        "ψ(｀∇´)ψ",
+        "(；′⌒`)",
+        "s(・｀ヘ´・;)ゞ",
+        "(▼皿▼#)",
+        "￣へ￣",
+        "←_←",
+        "（╯‵□′）╯︵┴─┴",
+        "（▼へ▼メ）",
+        "☄ฺ(◣д◢)☄ฺ",
+        "→_→",
+        "⊙_⊙",
+        "d(ŐдŐ๑)",
+        "Σ( ° △ °|||)︴",
+        "(((φ(◎ロ◎;)φ)))",
+        "⊙▽⊙",
+        "(๑ŐдŐ)b",
+        "╭(°A°`)╮",
+        "(๑òᆺó๑)",
+        "⊙ω⊙",
+        "Σ(っ °Д °;)っ",
+        " (ﾟДﾟ≡ﾟдﾟ)!?",
+        "( *・ω・)✄╰ひ╯",
+        "(⊙x⊙;)",
+        "┌(。Д。)┐",
+        "(°ー°〃)",
+        "︽⊙_⊙︽",
+        "!!!∑(°Д°ノ)ノ",
+        "(๑ŐдŐ)b☆d(ŐдŐ๑)",
+        "Σ⊙▃⊙川",
+        "ヽ(*。>Д<)o゜",
+        "━((*′д｀)爻(′д｀*))━!!!!",
+        "=_=",
+        "╮(╯_╰)╭",
+        "（︶︿︶）",
+        "_(:з」∠)_",
+        "@_@",
+        "╮(╯▽╰)╭",
+        "(＠￣ー￣＠)",
+        "_(:3」∠❀)_",
+        "눈_눈",
+        "╭(╯ε╰)╮",
+        "(ー_ー)!!",
+        "_(:D)∠)_",
+        "o_O",
+        "╭(╯^╰)╮",
+        "(；一_一)",
+        "´_>`",
+        "-_-#",
+        "┑(￣Д ￣)┍",
+        "≡￣﹏￣≡",
+        "○|￣|_",
+        "-_-||",
+        "ㄟ( ▔, ▔ )ㄏ",
+        "( ＿ ＿)ノ｜壁",
+        "▄█▀█●",
+      ]
+  combing:
+    type: SINGLE
+    name: "组合" #combing character
+    keys: ["⃢", "꯭", "̣", "̲"]
   ascii:
     type: SINGLE
     name: 英文
@@ -295,101 +533,215 @@ liquid_keyboard:
     type: SINGLE
     name: 假名
     keys: "あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわをんアィイウェエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヲン"
+  symbollist:
+    type: SYMBOL
+    name: 符号表
+    keys:
+      [
+        符号: "/fh",
+        电脑: "/dn",
+        象棋: "/xq",
+        麻将: "/mj",
+        骰子: "/sz",
+        扑克: "/pk",
+        天气: "/tq",
+        音乐: "/yy",
+        八卦: "/bg",
+        易经: "/lssg",
+        天体: "/tt",
+        星座: "/xz",
+        星号: "/xh",
+        方块: "/fk",
+        几何: "/jh",
+        箭头: "/jt",
+        数学: "/sx",
+        上标: "/sb",
+        下标: "/xb",
+        单位: "/dw",
+        货币: "/hb",
+        拼音: "/py",
+        注音: "/zy",
+        假名: "/jm",
+        片假: "/pjm",
+        韩文: "/hw",
+        希腊: "/xl",
+        希大: "/xld",
+        罗马: "/lm",
+        罗大: "/lmd",
+        俄语: "/ey",
+        俄大: "/eyd",
+        表情: "/bq",
+        一: "/1",
+        二: "/2",
+        三: "/3",
+        四: "/4",
+        五: "/5",
+        六: "/6",
+        七: "/7",
+        八: "/8",
+        九: "/9",
+        零: "/0",
+        十: "/10",
+        分数: "/fs",
+        标点: "/bd",
+        偏旁: "/pp",
+        竖标: "/bdz",
+      ]
 
+  #Android键位
+  #android_keys:
+  #__include: trime:/android_keys
+
+#预设键值
 preset_keys:
   # 安卓
-  BRIGHTNESS_DOWN: {label: 亮度-, send: BRIGHTNESS_DOWN}
-  BRIGHTNESS_UP: {label: 亮度+, send: BRIGHTNESS_UP}
-  CALCULATOR: {label: 计算机, send: CALCULATOR}
-  CALENDAR: {label: '🗓️', send: CALENDAR}
-  CONTACTS: {label: 电话簿, send: CONTACTS}
-  ENVELOPE: {label: 信箱, send: ENVELOPE}
-  EXPLORER: {label: 浏览器, send: EXPLORER}
-  MUSIC: {label: '🎵', send: MUSIC}
-  POWER: {label: 电源, send: POWER}
-  SEARCH: {label: 搜索, send: Find}
-  SLEEP: {label: 休眠, send: SLEEP}
-  VOICE_ASSIST: {label: '🎙', functional: true, send: VOICE_ASSIST}
+  BRIGHTNESS_DOWN: { label: "🔅-", send: BRIGHTNESS_DOWN }
+  BRIGHTNESS_UP: { label: "🔅+", send: BRIGHTNESS_UP }
+  CALCULATOR: { label: 计算器, send: CALCULATOR }
+  CALENDAR: { label: "🗓️", send: CALENDAR }
+  CONTACTS: { label: "☎️", send: CONTACTS }
+  ENVELOPE: { label: "📮", send: ENVELOPE }
+  EXPLORER: { label: 浏览器, send: EXPLORER }
+  MUSIC: { label: "🎵", send: MUSIC }
+  POWER: { label: 电源, send: POWER }
+  SEARCH: { label: 搜索, send: Find }
+  SLEEP: { label: 休眠, send: SLEEP }
+  VOICE_ASSIST: { label: "🎙", functional: true, send: VOICE_ASSIST }
+  VOLUME_DOWN: { label: 音量-, send: VOLUME_DOWN }
+  VOLUME_UP: { label: 音量+, send: VOLUME_UP }
+  VOLUME_MUTE: { label: 静音, send: VOLUME_MUTE }
   # 编辑
-  Shift_L: {label: '⇧', functional: false, send: Shift_L, shift_lock: ascii_long}
-  Return: { label: enter_labels, preview: '⏎', functional: false, send: Return }
-  Return1: {label: Enter, preview: '⏎', functional: false, send: Return}
-  Hide: {label: '⌵', send: BACK}
-  BackSpace: {label: '⌫', repeatable: true, functional: false, send: BackSpace}
-  space: {repeatable: false, functional: false, send: space}
-  Escape: {label: Esc, send: Escape}
-  Home: {label: '⇱', send: Home}
-  Insert: {label: '⎀', send: Insert}
-  Delete: {label: '⌦', send: Delete}
-  End: {label: '⇲', send: End}
-  Page_Up: {label: '⎗', send: Page_Up}
-  Page_Down: {label: '⎘', send: Page_Down}
-  Left: {label: '←', send: Left}
-  Down: {label: '↓', send: Down}
-  Up: {label: '↑', send: Up}
-  Right: {label: '→', send: Right}
-  select_all: {label: 全选, send: Control+a}
-  Clear: {label: 清除, text: "{Control+a}{BackSpace}"} #全选并删除
-  cut: {label: 剪切, send: Control+x}
-  cut_all: {label: 全挪, text: "{Control+a}{Control+x}"} #全选并剪切
-  copy: {label: 复制, send: Control+c}
-  copy_all: {label: 全誊, text: "{Control+a}{Control+c}"} #全选并复制
-  paste: {label: 粘贴, send: Control+v}
-  paste_text: {label: 粘贴文本, send: Control+Shift+Alt+v} #>=Android 6.0
-  share_text: {label: 分享文本, send: Control+Alt+s} #>=Android 6.0
-  redo: {label: 重做, functional: false, send: Control+Shift+z} #>=Android 6.0
-  undo: {label: 撤销, functional: false, send: Control+z} #>=Android 6.0
-  delimiter: {label: 分词, text: ''''}
+  Shift_L:
+    { label: "⇧", functional: false, send: Shift_L, shift_lock: ascii_long }
+  Return: { label: enter_labels, preview: "⏎", functional: false, send: Return }
+  Return1: { label: Enter, preview: "⏎", functional: false, send: Return }
+  Return2: { label: 回车, send: Return }
+  Hide: { label: "⌵", send: BACK }
+  BackSpace:
+    { label: "⌫", repeatable: true, functional: false, send: BackSpace }
+  space: { label: "_______", repeatable: false, functional: false, send: space }
+  space1: { repeatable: false, label: "空格", functional: false, send: space }
+  Clear: { label: 全清, send: Clear }
+  Escape: { label: Esc, functional: false, send: Escape }
+  Home: { label: "⇱", send: Home }
+  Insert: { label: "⎀", send: Insert }
+  Delete: { label: "⌦", send: Delete }
+  End: { label: "⇲", send: End }
+  Page_Up: { label: "⎗", send: Page_Up }
+  Page_Down: { label: "⎘", send: Page_Down }
+  Left: { label: "←", send: Left }
+  Down: { label: "↓", send: Down }
+  Up: { label: "↑", send: Up }
+  Right: { label: "→", send: Right }
+  select_all: { label: 全选, send: Control+a }
+  cut: { label: 剪切, send: Control+x }
+  cut_all: { label: 全挪, text: "{Control+a}{Control+x}" } #全选并剪切
+  copy: { label: 复制, send: Control+c }
+  copy_all: { label: 全誊, text: "{Control+a}{Control+c}" } #全选并复制
+  paste: { label: 粘贴, send: Control+v }
+  paste_text: { label: 粘贴文本, send: Control+Shift+Alt+v } #>=Android 6.0
+  share_text: { label: 分享文本, send: Control+Alt+s } #>=Android 6.0
+  redo: { label: 重做, functional: false, send: Control+Shift+z } #>=Android 6.0
+  undo: { label: 撤销, functional: false, send: Control+z } #>=Android 6.0
+  delimiter: { label: 分词, text: "'" }
+  x1: { text: "{Home}{Right}{Right}", label: 单字, functional: false }
+  x2:
+    {
+      text: "{Home}{Right}{Right}{Right}{Right}",
+      label: 二字,
+      functional: false,
+    }
+  x3:
+    {
+      text: "{Home}{Right}{Right}{Right}{Right}{Right}{Right}",
+      label: 三字,
+      functional: false,
+    }
+  x4:
+    {
+      text: "{Home}{Right}{Right}{Right}{Right}{Right}{Right}{Right}{Right}",
+      label: 四字,
+      functional: false,
+    }
   # rime组合键
-  F4: {label: 方案菜单, send: F4}
-  BackToPreviousSyllable: {label: 删音节, send: Control+BackSpace}
-  CommitRawInput: {label: 编码, send: Control+Return}
-  CommitScriptText: {label: 编码, send: Shift+Return}
-  CommitComment: {label: 编码, send: Control+Shift+Return}
-  DeleteCandidate: {label: 删词, send: Control+Delete}
+  F4: { label: 方案菜单, send: F4 }
+  BackToPreviousSyllable: { label: 删音节, send: Control+BackSpace }
+  CommitRawInput: { label: 编码, send: Control+Return }
+  CommitScriptText: { label: 编码, send: Shift+Return }
+  CommitComment: { label: 编码, send: Control+Shift+Return }
+  DeleteCandidate: { label: 删词, send: Control+Delete }
   # rime状态
-  Mode_switch: {toggle: ascii_mode, send: Mode_switch, states: [ 中文, 西文 ]}
-  Zenkaku_Hankaku: {toggle: full_shape, send: Mode_switch, states: [ 半角, 全角 ]}
-  Henkan: {toggle: simplification, send: Mode_switch, states: [ 汉字, 汉字 ]}
-  Charset_switch: {toggle: extended_charset, send: Mode_switch, states: [ 常用, 增广 ]}
-  Punct_switch: {toggle: ascii_punct, send: Mode_switch, states: [ 。，, ．， ]}
+  Mode_switch: { toggle: ascii_mode, send: Mode_switch, states: [中文, 西文] }
+  Zenkaku_Hankaku:
+    { toggle: full_shape, send: Mode_switch, states: [半角, 全角] }
+  Henkan: { toggle: simplification, send: Mode_switch, states: [汉字, 汉字] }
+  Charset_switch:
+    { toggle: extended_charset, send: Mode_switch, states: [常用, 增广] }
+  Punct_switch: { toggle: ascii_punct, send: Mode_switch, states: [。，, ．，] }
   #切换键盘
-  Keyboard_symbols: {label: '</>', send: Eisu_toggle, select: symbols}
-  Keyboard_number: {label: '123', send: Eisu_toggle, select: number}
-  Keyboard_letter: {label: 'abc', send: Eisu_toggle, select: default}
-  Keyboard_default: {label: '◁', send: Eisu_toggle, select: .default}
-  Keyboard_switch: {label: ⌨, send: Eisu_toggle, select: .next}
-  liquid_keyboard_switch: { label: '✍', send: function, command: liquid_keyboard, option: "特殊" }
-  liquid_keyboard_switch2: { toggle: _liquid_keyboard, send: Mode_switch, states: [ 更多, 更多 ] }
-  liquid_keyboard_emoji: { label: 🙂, send: function, command: liquid_keyboard, option: "emoji" }
-  liquid_keyboard_clipboard: { label: '📋', send: function, command: liquid_keyboard, option: "剪贴" }
+  Keyboard_symbols: { label: "</>", send: Eisu_toggle, select: symbols }
+  Keyboard_number: { label: "123", send: Eisu_toggle, select: number }
+  Keyboard_letter: { label: "abc", send: Eisu_toggle, select: default }
+  Keyboard_default: { label: "◁", send: Eisu_toggle, select: .default }
+  Keyboard_switch: { label: ⌨, send: Eisu_toggle, select: .next }
+  liquid_keyboard_exit: {
+      label: 返回,
+      send: function,
+      command: liquid_keyboard,
+      option: "-1",
+    } #退出liquidkeyboard
+  liquid_keyboard_switch:
+    { label: "✍", send: function, command: liquid_keyboard, option: "特殊" }
+  liquid_keyboard_switch2:
+    { toggle: _liquid_keyboard, send: Mode_switch, states: [更多, 更多] }
+  liquid_keyboard_tabs:
+    { label: 更多, send: function, command: liquid_keyboard, option: "更多" }
+  liquid_keyboard_emoji:
+    { label: 🙂, send: function, command: liquid_keyboard, option: "emoji" }
+  liquid_keyboard_clipboard:
+    { label: "📋", send: function, command: liquid_keyboard, option: "剪贴" }
   # trime设置
   IME_switch: { label: 🌐, send: LANGUAGE_SWITCH } #弹出对话框选择输入法
   IME_last: { label: 上一输入法, send: LANGUAGE_SWITCH, select: .last } #直接切换到上一输入法
   IME_next: { label: 下一输入法, send: LANGUAGE_SWITCH, select: .next } #直接切换到下一输入法
-  Schema_switch: {label: ⏭, send: Control+Shift+1}
-  Help: {label: 说明, send: Help}
-  Info: {label: 关于, send: INFO}
-  Menu: {label: 菜单, send: Menu}
-  Settings: {label: 设置, send: SETTINGS}
-  Color_settings: {label: 配色, send: SETTINGS, option: "color"}
-  Theme_settings: {label: 主题, send: SETTINGS, option: "theme"}
-  Schema_settings: {label: 方案, send: SETTINGS, option: "schema"}
-  Candidate_switch: {toggle: _hide_candidate, send: Mode_switch, states: [ 有候选, 无候选]}
-  Comment_switch: {toggle: _hide_comment, send: Mode_switch, states: [ 有注释, 无注释]}
-  Hint_switch: {toggle: _hide_key_hint, send: Mode_switch, states: [ 有助记, 无助记]}
+  Schema_switch: { label: ⏭, send: Control+Shift+1 }
+  Help: { label: 说明, send: Help }
+  Info: { label: 关于, send: INFO }
+  Menu: { label: 菜单, send: Menu }
+  Settings: { label: 设置, send: SETTINGS }
+  Color_settings: { label: 配色, send: SETTINGS, option: "color" }
+  Theme_settings: { label: 主题, send: SETTINGS, option: "theme" }
+  Schema_settings: { label: 方案, send: SETTINGS, option: "schema" }
+  Candidate_switch:
+    { toggle: _hide_candidate, send: Mode_switch, states: [有候选, 无候选] }
+  Comment_switch:
+    { toggle: _hide_comment, send: Mode_switch, states: [有注释, 无注释] }
+  Hint_switch:
+    { toggle: _hide_key_hint, send: Mode_switch, states: [有助记, 无助记] }
   # trime命令
-  Date: {label: 日期, command: date, option: "yyyy-MM-dd"}
-  ChineseDate: {label: 农历, command: date, option: "zh_CN@calendar=chinese"} #农历等日期(>=Android 7.0)：date 语言@calendar=历法 格式。具体参见https://developer.android.com/reference/android/icu/util/Calendar.html
-  Time: {label: 时间, command: date, option: "HH:mm:ss"} #时间： date 格式
-  TrimeApp: {label: 同文, command: run, option: "com.osfans.trime"} #运行进程: run 包名
+  Date: { label: 日期, command: date, option: "yyyy-MM-dd" }
+  ChineseDate: { label: 农历, command: date, option: "zh_CN@calendar=chinese" } #农历等日期(>=Android 7.0)：date 语言@calendar=历法 格式。具体参见https://developer.android.com/reference/android/icu/util/Calendar.html
+  Time: { label: 时间, command: date, option: "HH:mm:ss" } #时间： date 格式
+  TrimeApp: { label: 同文, command: run, option: "com.osfans.trime" } #运行进程: run 包名
   #TrimeCmp: {label: 同文组件, command: run, option: "com.osfans.trime/.Pref"} #运行进程指定组件: run 包名/组件名
-  Homepage: {label: 同文主页, command: run, option: "https://github.com/osfans/trime"} #查看网页: run 网址
-  CommitHomepage: {label: 同文网址, commit: https://github.com/osfans/trime} #直接上屏
-  Baidu: {label: 百度搜索, command: run, option: "https://www.baidu.com/s?wd=%4$s"} #搜索网页: %4s为光标前所有字符
-  WebSearch: {label: 搜索网页, command: web_search, option: "%4$s"} #搜索，其他view、dial、edit、search等intent，参考安卓的intent文档：https://developer.android.com/reference/android/content/Intent.html
-  Deploy: {label: 部署, command: broadcast, option: "com.osfans.trime.deploy"}
-  Sync: {label: 同步, command: broadcast, option: "com.osfans.trime.sync"}
+  Homepage: {
+      label: 同文主页,
+      command: run,
+      option: "https://github.com/osfans/trime",
+    } #查看网页: run 网址
+  CommitHomepage: { label: 同文网址, commit: https://github.com/osfans/trime } #直接上屏
+  Baidu: {
+      label: 百度搜索,
+      command: run,
+      option: "https://www.baidu.com/s?wd=%4$s",
+    } #搜索网页: %4s为光标前所有字符
+  WebSearch: { label: 搜索网页, command: web_search, option: "%4$s" } #搜索，其他view、dial、edit、search等intent，参考安卓的intent文档：https://developer.android.com/reference/android/content/Intent.html
+  Deploy: { label: 部署, command: broadcast, option: "com.osfans.trime.deploy" }
+  Sync: { label: 同步, command: broadcast, option: "com.osfans.trime.sync" }
+  Left1: { label: "⇦", send: Control+Left, repeatable: true, functional: false }
+  Right1:
+    { label: "⇨", send: Control+Right, repeatable: true, functional: false }
+  Shift_L2: { label: 选择, preview: "⇪", functional: false, send: Shift_L }
 #键盘布局
 preset_keyboards:
   default:
@@ -400,59 +752,59 @@ preset_keyboards:
     lock: true
     width: 10
     height: *keyboard
-    keys: 
-    # line 1
-    - {click: '1', long_click: '!'}
-    - {click: '2', long_click: '@'}
-    - {click: '3', long_click: '#'}
-    - {click: '4', long_click: '$'}
-    - {click: '5', long_click: '%'}
-    - {click: '6', long_click: '^'}
-    - {click: '7', long_click: '&'}
-    - {click: '8', long_click: '*'}
-    - {click: '9', long_click: '('}
-    - {click: '0', long_click: ')'}
-    # line 2
-    - {click: 'q', long_click: '_'}
-    - {click: 'w', long_click: '-'}
-    - {click: 'e', long_click: '+'}
-    - {click: 'r', long_click: '='}
-    - {click: 't', long_click: '|'}
-    - {click: 'y', long_click: '\'}
-    - {click: 'u', long_click: '['}
-    - {click: 'i', long_click: ']'}
-    - {click: 'o', long_click: '{}{Left}'}
-    - {click: 'p', long_click: '「」{Left}'}
-    # line 3
-    - {width: 5}
-    - {click: 'a', long_click: select_all}
-    - {click: 's', long_click: Time}
-    - {click: 'd', long_click: Date}
-    - {click: 'f', long_click: '`'}
-    - {click: 'g', long_click: '·'}
-    - {click: 'h', long_click: '~'}
-    - {click: 'j', long_click: '/'}
-    - {click: 'k', long_click: ':'}
-    - {click: 'l', long_click: ';'}
-    - {width: 5}
-    # line 4
-    - {click: Shift_L, composing: delimiter, width: 15}
-    - {click: 'z', long_click: "'"}
-    - {click: 'x', long_click: cut}
-    - {click: 'c', long_click: copy}
-    - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: '?'}
-    - {click: 'n', long_click: ChineseDate}
-    - {click: 'm', long_click: '""{Left}'}
-    - {click: BackSpace, width: 15}
-    #line 5
-    - {click: Schema_switch, long_click: Menu, width: 15}
-    - {click: Keyboard_number, long_click: Theme_settings}
-    - {click: ',', long_click: '<'}
-    - {click: space, long_click: Mode_switch,width: 30}
-    - {click: '.', long_click: '>'}
-    - {click: liquid_keyboard_switch, long_click: Color_settings}
-    - {click: Return, width: 15}
+    keys:
+      # line 1
+      - { click: "1", long_click: "!" }
+      - { click: "2", long_click: "@" }
+      - { click: "3", long_click: "#" }
+      - { click: "4", long_click: "$" }
+      - { click: "5", long_click: "%" }
+      - { click: "6", long_click: "^" }
+      - { click: "7", long_click: "&" }
+      - { click: "8", long_click: "*" }
+      - { click: "9", long_click: "(" }
+      - { click: "0", long_click: ")" }
+      # line 2
+      - { click: "q", long_click: "_" }
+      - { click: "w", long_click: "-" }
+      - { click: "e", long_click: "+" }
+      - { click: "r", long_click: "=" }
+      - { click: "t", long_click: "|" }
+      - { click: "y", long_click: '\' }
+      - { click: "u", long_click: "[" }
+      - { click: "i", long_click: "]" }
+      - { click: "o", long_click: "{}{Left}" }
+      - { click: "p", long_click: "「」{Left}" }
+      # line 3
+      - { width: 5 }
+      - { click: "a", long_click: select_all }
+      - { click: "s", long_click: Time }
+      - { click: "d", long_click: Date }
+      - { click: "f", long_click: "`" }
+      - { click: "g", long_click: "·" }
+      - { click: "h", long_click: "~" }
+      - { click: "j", long_click: "/" }
+      - { click: "k", long_click: ":" }
+      - { click: "l", long_click: ";" }
+      - { width: 5 }
+      # line 4
+      - { click: Shift_L, composing: delimiter, width: 15 }
+      - { click: "z", long_click: "'" }
+      - { click: "x", long_click: cut }
+      - { click: "c", long_click: copy }
+      - { click: "v", long_click: paste }
+      - { click: "b", long_click: "?" }
+      - { click: "n", long_click: ChineseDate }
+      - { click: "m", long_click: '""{Left}' }
+      - { click: BackSpace, width: 15 }
+      #line 5
+      - { click: Schema_switch, long_click: Menu, width: 15 }
+      - { click: Keyboard_number, long_click: Theme_settings }
+      - { click: ",", long_click: "<" }
+      - { click: space, long_click: Mode_switch, width: 30 }
+      - { click: ".", long_click: ">" }
+      - { click: liquid_keyboard_switch, long_click: Color_settings }
+      - { click: Return, width: 15 }
     #line 6 小米全面屏优化仅针对定制版，加长全面屏导致键盘下移，因此添加一行输入法功能栏。
     #- {click: Hide, width: 20}
     #- {click: VOICE_ASSIST, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 60}
@@ -466,83 +818,83 @@ preset_keyboards:
     label_transform: uppercase #uppercase|none 中文模式下的字母标签自动大写
     lock: true #切换进程时记忆键盘
     keys:
-    # line 1
-    - {click: 'q', long_click: '1'}
-    - {click: 'w', long_click: '2'}
-    - {click: 'e', long_click: '3'}
-    - {click: 'r', long_click: '4'}
-    - {click: 't', long_click: '5'}
-    - {click: 'y', long_click: '6'}
-    - {click: 'u', long_click: '7'}
-    - {click: 'i', long_click: '8'}
-    - {click: 'o', long_click: '9'}
-    - {click: 'p', long_click: '0'}
-    # line 2
-    - {width: 5}
-    - {click: 'a', long_click: select_all}
-    - {click: 's', long_click: Time}
-    - {click: 'd', long_click: Date}
-    - {click: 'f', long_click: '!'}
-    - {click: 'g', long_click: '·'}
-    - {click: 'h', long_click: '""{Left}'}
-    - {click: 'j', long_click: '^'}
-    - {click: 'k', long_click: ':'}
-    - {click: 'l', long_click: ';'}
-    - {width: 5}
-    # line 3
-    - {click: Shift_L, has_menu: "'", width: 15}
-    - {click: 'z', long_click: "/"}
-    - {click: 'x', long_click: cut}
-    - {click: 'c', long_click: copy}
-    - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: '?'}
-    - {click: 'n', long_click: ChineseDate}
-    - {click: 'm', long_click: '\'}
-    - {click: BackSpace, width: 15}
-    #line 4
-    - {click: Keyboard_symbols, long_click: Menu, width: 15}
-    - {click: Keyboard_number, long_click: Theme_settings}
-    - {label: '，', click: ',', long_click: '<'}
-    - {click: space, width: 30}
-    - {label: '。', click: '.', long_click: '>'}
-    - {click: liquid_keyboard_switch, long_click: Color_settings}
-    - {click: Return, width: 15}
+      # line 1
+      - { click: "q", long_click: "1" }
+      - { click: "w", long_click: "2" }
+      - { click: "e", long_click: "3" }
+      - { click: "r", long_click: "4" }
+      - { click: "t", long_click: "5" }
+      - { click: "y", long_click: "6" }
+      - { click: "u", long_click: "7" }
+      - { click: "i", long_click: "8" }
+      - { click: "o", long_click: "9" }
+      - { click: "p", long_click: "0" }
+      # line 2
+      - { width: 5 }
+      - { click: "a", long_click: select_all }
+      - { click: "s", long_click: Time }
+      - { click: "d", long_click: Date }
+      - { click: "f", long_click: "!" }
+      - { click: "g", long_click: "·" }
+      - { click: "h", long_click: '""{Left}' }
+      - { click: "j", long_click: "^" }
+      - { click: "k", long_click: ":" }
+      - { click: "l", long_click: ";" }
+      - { width: 5 }
+      # line 3
+      - { click: Shift_L, has_menu: "'", width: 15 }
+      - { click: "z", long_click: "/" }
+      - { click: "x", long_click: cut }
+      - { click: "c", long_click: copy }
+      - { click: "v", long_click: paste }
+      - { click: "b", long_click: "?" }
+      - { click: "n", long_click: ChineseDate }
+      - { click: "m", long_click: '\' }
+      - { click: BackSpace, width: 15 }
+      #line 4
+      - { click: Keyboard_symbols, long_click: Menu, width: 15 }
+      - { click: Keyboard_number, long_click: Theme_settings }
+      - { label: "，", click: ",", long_click: "<" }
+      - { click: space, width: 30 }
+      - { label: "。", click: ".", long_click: ">" }
+      - { click: liquid_keyboard_switch, long_click: Color_settings }
+      - { click: Return, width: 15 }
   number:
     name: 25键数字小键盘
     author: *au
     width: 20
     height: *keyboard
     keys:
-    #line 1
-    - {click: '+', long_click: Insert}
-    - {click: '1', long_click: Home}
-    - {click: '2', long_click: Up}
-    - {click: '3', long_click: Page_Up}
-    - {click: '%', long_click: Delete}
-    #line 2
-    - {click: '-', long_click: Keyboard_letter}
-    - {click: '4', long_click: Left}
-    - {click: '5', long_click: select_all}
-    - {click: '6', long_click: Right}
-    - {click: '#', long_click: }
-    #line 3
-    - {click: '*', long_click: liquid_keyboard_switch}
-    - {click: '7', long_click: End}
-    - {click: '8', long_click: Down}
-    - {click: '9', long_click: Page_Down}
-    - {click: ':', long_click: ';'}
-    #line 4
-    - {click: '/', long_click: Deploy}
-    - {click: '@', long_click: copy}
-    - {click: '0', long_click: cut}
-    - {click: '=', long_click: paste}
-    - {click: BackSpace}
-    #line 5
-    - {click: Keyboard_default, long_click: Keyboard_symbols}
-    - {click: ',', long_click: '('}
-    - {click: space}
-    - {click: '.', long_click: ')'}
-    - {click: 'Return', long_click: Hide}
+      #line 1
+      - { click: "+", long_click: Insert }
+      - { click: "1", long_click: Home }
+      - { click: "2", long_click: Up }
+      - { click: "3", long_click: Page_Up }
+      - { click: "%", long_click: Delete }
+      #line 2
+      - { click: "-", long_click: Keyboard_letter }
+      - { click: "4", long_click: Left }
+      - { click: "5", long_click: select_all }
+      - { click: "6", long_click: Right }
+      - { click: "#", long_click }
+      #line 3
+      - { click: "*", long_click: liquid_keyboard_switch }
+      - { click: "7", long_click: End }
+      - { click: "8", long_click: Down }
+      - { click: "9", long_click: Page_Down }
+      - { click: ":", long_click: ";" }
+      #line 4
+      - { click: "/", long_click: Deploy }
+      - { click: "@", long_click: copy }
+      - { click: "0", long_click: cut }
+      - { click: "=", long_click: paste }
+      - { click: BackSpace }
+      #line 5
+      - { click: Keyboard_default, long_click: Keyboard_symbols }
+      - { click: ",", long_click: "(" }
+      - { click: space }
+      - { click: ".", long_click: ")" }
+      - { click: "Return", long_click: Hide }
     #line 6 小米全面屏优化导致键盘下移，因此添加一行输入法功能栏。
     #- {click: Hide, width: 20}
     #- {click: VOICE_ASSIST, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 60}
@@ -554,54 +906,54 @@ preset_keyboards:
     width: 10
     height: *keyboard
     keys:
-    #line 1
-    - {click: '1'}
-    - {click: '2'}
-    - {click: '3'}
-    - {click: '4'}
-    - {click: '5'}
-    - {click: '6'}
-    - {click: '7'}
-    - {click: '8'}
-    - {click: '9'}
-    - {click: '0'}
-    #line 2
-    - {click: '~', long_click: '`'}
-    - {click: '!'}
-    - {click: '@'}
-    - {click: '#'}
-    - {click: '$'}
-    - {click: '￥'}
-    - {click: '%'}
-    - {click: '^'}
-    - {click: '&'}
-    - {click: '*'}
-    #line 3
-    - {click: '(', long_click: '{'}
-    - {click: ')', long_click: '}'}
-    - {click: '[', long_click: '【'}
-    - {click: ']', long_click: '】'}
-    - {click: '「', long_click: '『'}
-    - {click: '」', long_click: '』'}
-    - {click: '、', ascii: '\', long_click: '|'}
-    - {click: '/', long_click: '√'}
-    - {click: ':'}
-    - {click: ';'}
-    #line 4
-    - {click: Tab, width: 20}
-    - {click: '+'}
-    - {click: '-', long_click: '_'}
-    - {click: '《》{Left}', ascii: '<>{Left}', long_click: '〔〕{Left}'}
-    - {click: '“”{Left}', ascii: '""{Left}', long_click: '‘’{Left}'}
-    - {click: '='}
-    - {click: '？', ascii: '?'}
-    - {click: BackSpace, long_click: Escape, width: 20}
-    #line 5
-    - {click: Keyboard_number, long_click: Keyboard_default, width: 20}
-    - {click: '，', ascii: ',', long_click: Left}
-    - {click: space, width: 40}
-    - {click: '。', ascii: '.', long_click: Right}
-    - {click: Return, long_click: Hide, width: 20}
+      #line 1
+      - { click: "1" }
+      - { click: "2" }
+      - { click: "3" }
+      - { click: "4" }
+      - { click: "5" }
+      - { click: "6" }
+      - { click: "7" }
+      - { click: "8" }
+      - { click: "9" }
+      - { click: "0" }
+      #line 2
+      - { click: "~", long_click: "`" }
+      - { click: "!" }
+      - { click: "@" }
+      - { click: "#" }
+      - { click: "$" }
+      - { click: "￥" }
+      - { click: "%" }
+      - { click: "^" }
+      - { click: "&" }
+      - { click: "*" }
+      #line 3
+      - { click: "(", long_click: "{" }
+      - { click: ")", long_click: "}" }
+      - { click: "[", long_click: "【" }
+      - { click: "]", long_click: "】" }
+      - { click: "「", long_click: "『" }
+      - { click: "」", long_click: "』" }
+      - { click: "、", ascii: '\', long_click: "|" }
+      - { click: "/", long_click: "√" }
+      - { click: ":" }
+      - { click: ";" }
+      #line 4
+      - { click: Tab, width: 20 }
+      - { click: "+" }
+      - { click: "-", long_click: "_" }
+      - { click: "《》{Left}", ascii: "<>{Left}", long_click: "〔〕{Left}" }
+      - { click: "“”{Left}", ascii: '""{Left}', long_click: "‘’{Left}" }
+      - { click: "=" }
+      - { click: "？", ascii: "?" }
+      - { click: BackSpace, long_click: Escape, width: 20 }
+      #line 5
+      - { click: Keyboard_number, long_click: Keyboard_default, width: 20 }
+      - { click: "，", ascii: ",", long_click: Left }
+      - { click: space, width: 40 }
+      - { click: "。", ascii: ".", long_click: Right }
+      - { click: Return, long_click: Hide, width: 20 }
   stroke:
     name: 五笔画
     author: *au
@@ -610,68 +962,68 @@ preset_keyboards:
     width: 20
     height: *keyboard
     keys:
-    #line 1
-    - {click: Home}
-    - {click: 'h', label: '一'}
-    - {click: Up}
-    - {click: 's', label: '丨'}
-    - {click: End}
-    #line 2
-    - {click: Page_Up}
-    - {click: Left}
-    - {click: 'z', label: '乙'}
-    - {click: Right}
-    - {click: Page_Down}
-    #line 3
-    - {click: cut}
-    - {click: 'p', label: '丿'}
-    - {click: Down}
-    - {click: 'n', label: '丶'}
-    - {click: paste}
-    #line 4
-    - {click: '/'}
-    - {click: select_all}
-    - {click: Deploy}
-    - {click: copy}
-    - {click: BackSpace}
-    #line 5
-    - {click: Keyboard_default, long_click: Menu}
-    - {click: ',', long_click: Theme_settings}
-    - {click: space}
-    - {click: '.', long_click: Color_settings}
-    - {click: Return, long_click: Hide}
+      #line 1
+      - { click: Home }
+      - { click: "h", label: "一" }
+      - { click: Up }
+      - { click: "s", label: "丨" }
+      - { click: End }
+      #line 2
+      - { click: Page_Up }
+      - { click: Left }
+      - { click: "z", label: "乙" }
+      - { click: Right }
+      - { click: Page_Down }
+      #line 3
+      - { click: cut }
+      - { click: "p", label: "丿" }
+      - { click: Down }
+      - { click: "n", label: "丶" }
+      - { click: paste }
+      #line 4
+      - { click: "/" }
+      - { click: select_all }
+      - { click: Deploy }
+      - { click: copy }
+      - { click: BackSpace }
+      #line 5
+      - { click: Keyboard_default, long_click: Menu }
+      - { click: ",", long_click: Theme_settings }
+      - { click: space }
+      - { click: ".", long_click: Color_settings }
+      - { click: Return, long_click: Hide }
   unicode:
     name: 统一码
     author: *au
     ascii_mode: 0
     width: 25
     height: *keyboard
-    keys: 
-    #line1
-    - {click: a}
-    - {click: b}
-    - {click: c}
-    - {click: BackSpace}
-    #line2
-    - {click: 7}
-    - {click: 8}
-    - {click: 9}
-    - {click: d}
-    #line3
-    - {click: 4}
-    - {click: 5}
-    - {click: 6}
-    - {click: e}
-    #line4
-    - {click: 1}
-    - {click: 2}
-    - {click: 3}
-    - {click: f}
-    #line5
-    - {click: Schema_switch}
-    - {click: 0}
-    - {click: 'U'}
-    - {click: space}
+    keys:
+      #line1
+      - { click: a }
+      - { click: b }
+      - { click: c }
+      - { click: BackSpace }
+      #line2
+      - { click: 7 }
+      - { click: 8 }
+      - { click: 9 }
+      - { click: d }
+      #line3
+      - { click: 4 }
+      - { click: 5 }
+      - { click: 6 }
+      - { click: e }
+      #line4
+      - { click: 1 }
+      - { click: 2 }
+      - { click: 3 }
+      - { click: f }
+      #line5
+      - { click: Schema_switch }
+      - { click: 0 }
+      - { click: "U" }
+      - { click: space }
     #line 6 小米全面屏优化导致键盘下移，因此添加一行输入法功能栏。
     #- {click: Hide, width: 20}
     #- {click: VOICE_ASSIST, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 60}
