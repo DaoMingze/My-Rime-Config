@@ -23,6 +23,7 @@ title: My-Rime-Config
 3. 通过子模块引入[融合拼音](https://github.com/tumuyan/rime-melt)、[雾凇拼音](https://github.com/iDvel/rime-ice)、[白霜词库](https://github.com/gaboolic/rime-frost)
 4. 参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
 5. 考虑使用脚本优化[同文（Trime）输入法](https://github.com/osfans/trime/releases)的主题。
+6. 关注[万象词库与万象语言模型](https://github.com/amzxyz/RIME-LMDG)
 
 ## 简介
 
