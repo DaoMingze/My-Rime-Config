@@ -1,9 +1,10 @@
 [submodule "raw/rime-melt"]
-	path = raw/rime-melt
-	url = https://github.com/tumuyan/rime-melt
+path = raw/rime-melt
+url = https://github.com/tumuyan/rime-melt
 [submodule "raw/rime-ice"]
-	path = raw/rime-ice
-	url = https://github.com/iDvel/rime-ice
+path = raw/rime-ice
+url = https://github.com/iDvel/rime-ice
+ignore = dirty
 [submodule "raw/rime-frost"]
-	path = raw/rime-frost
-	url = https://github.com/gaboolic/rime-frost
+path = raw/rime-frost
+url = https://github.com/gaboolic/rime-frost
