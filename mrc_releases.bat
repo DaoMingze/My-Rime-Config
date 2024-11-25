@@ -1,11 +1,12 @@
 @ECHO OFF
+@REM chcp 65001
 CD /d %~dp0
 :CHOICE
 ECHO.
-ECHO 1 - 仅生成一般文件
-ECHO 2 - Trime 同文输入法 Android
-ECHO 3 - Weasel 小狼毫输入法 Windows
-ECHO 4 - 退出
+ECHO 1  仅生成一般文件
+ECHO 2  【Android】同文输入法
+ECHO 3  【Windows】小狼毫输入法
+ECHO 4  退出
 ECHO.
 CHOICE /C:1234 /N
 IF errorlevel 4 EXIT

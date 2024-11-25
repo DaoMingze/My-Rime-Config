@@ -12,25 +12,17 @@ title: My-Rime-Config
 
 [CN](README.md) | ~~[EN](README_en.md)~~
 
+**输入法**|排版
+
 </div>
 
 ## 当前状态
 
->由于合并雾凇拼音，mrc_releases 暂不可用。
->
->英文说明尚未更新（the README_en.md is outdated.）
->
-> wget 获取辞典文件脚本还在调试中
-> liangfen 自定义配置还在调试中
-> 目前 lua 脚本完全套用自雾凇拼音，还在自定义修改中
-
-调整期间使用雾凇拼音，并参考 [someok/rime-ice-custom](https://github.com/someok/rime-ice-custom)
-
-- fcitx5-rime，`defualt.custom.yaml`在`/home/wdz/.local/share/fcitx5/rime/`
-
-```cmd
-rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
-```
+1. 英文说明尚未更新（the README_en.md is outdated.）
+2. 目前**完全**使用[雾凇拼音](https://github.com/iDvel/rime-ice)，部分配置参考[someok/rime-ice-custom](https://github.com/someok/rime-ice-custom)
+3. 通过子模块引入[融合拼音](https://github.com/tumuyan/rime-melt)、[雾凇拼音](https://github.com/iDvel/rime-ice)、[白霜词库](https://github.com/gaboolic/rime-frost)
+4. 参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
+5. 考虑使用脚本优化[同文（Trime）输入法](https://github.com/osfans/trime/releases)的主题。
 
 ## 简介
 
@@ -38,17 +30,13 @@ rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
 
 输入方案和词典来源：
 
-- forked [Rime-melt，融合拼音](https://github.com/tumuyan/rime-melt)![GitHub license](https://img.shields.io/github/license/tumuyan/rime-melt)
-- merged [Rime-ice，雾凇拼音](https://github.com/iDvel/rime-ice)![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)
-
 ```bash
 mkdir raw
 cd raw
-git submodule add https://github.com/tumuyan/rime-melt
-git submodule add https://github.com/iDvel/rime-ice
+git submodule add --depth=1 https://github.com/tumuyan/rime-melt raw/rime-melt
+git submodule add --depth=1 https://github.com/iDvel/rime-ice raw/rime-ice
+git submodule add --depth=1 https://github.com/gaboolic/rime-frost raw/rime-frost
 ```
-
-参考 [rimerc](https://github.com/Bambooin/rimerc) 设置 release。
 
 部分配置参考 [rime-ice-custom](https://github.com/someok/rime-ice-custom)
 
@@ -64,44 +52,9 @@ git submodule add https://github.com/iDvel/rime-ice
 
 [TOC]
 
-## 设计
+## 需求
 
-### 输入方案
-
-为了方便拉取合并更新，自定义事项使用`patch`。
-
-功能上，微机（PC）以`微软拼音`为参考，移动终端以`Gboard`（谷歌 Gboard 输入法）为参考，结合 Rime 的各种方案组合如下
-
-- 状态栏功能
-  - [x] 中英、中英标点、全半角切换，Rime 自带
-  - [x] 简繁转换，opencc 实现
-  - [x] 表情及符号面板，仅 Trime（同文风主题、流体键盘）
-- 输入方案相关
-  - [x] 模糊拼音，袖珍简化字拼音实现
-  - [ ] 双拼，理想中的简易双拼是注音输入
-- 输入操作
-  - [ ] 候选字翻页，融合拼音由于使用了`-`，因此不支持-/=翻页。
-  - [x] 以词定字，左右方括号，雾凇拼音实现。
-  - [x] u 模式，部件拼字。以字海两分输入方案为反查（融合拼音实现），反查起首从、`改为`u`（雾凇拼音实现）。
-  - [x] uu 模式，专门字符。以`symbol.yaml`为基础，将默认的`/`改为`uu`（雾凇拼音实现以 v 开头）。
-  - [ ] v 模式，输入内容格式转换。计划通过 lua 脚本实现（脚本有现成的）
-    - 数字
-    - 日期
-    - 时间
-    - 公式
-  - [ ] v[uc|gb] 模式，字符集编码输入。Unicode 输入有现成方案，但不知能否增加反查。
-  - [ ] ; 模式，人名候选，提高姓氏、常见名字组合权重。考虑和分词等有关，或者设计一个过滤器。
-- 词库
-  - [x] 自定义短语，Rime 自带。
-  - [x] 内置文本替换，融合拼音实现_oo 输入替换。
-  - [x] emoji 语义输入，雾凇拼音通过 opencc 实现
-  - [x] 专业/扩展词典，Rime 自带。
-
-1. [融合拼音](https://github.com/tumuyan/rime-melt)：以 [袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)、[【Rime 简体中文用户定制文件】](https://github.com/huaxianyan/Rime) 为基础，[字海两分](http://cheonhyeong.com/Simplified/download.html) 为反查，配合修改版 [Easy English](https://github.com/BlindingDark/rime-easy-en) 实现了简体中文和常用英语的混合输入。
-2. [雾凇拼音](https://github.com/iDvel/rime-ice)，一个长期维护的简体词库，包含全拼和常用的自然码双拼、小鹤双拼、微软双拼
-3. Unicode 输入：基于 lua 脚本的 Unicode 输入方案，解决部分未支持的字符输入问题，建议配合 [babelpad](https://www.babelstone.co.uk/Software/BabelPad.html)（Windows OS）、unicodepad（Android OS）、[unicode 字符百科](https://unicode-table.com/)（web）等工具、或 [unicode 标准文件](https://home.unicode.org/)。
-
-### 辞典（dictionaries）
+### 输入的上限：辞典（dictionaries）
 
 字符、t 编码、t 频率（非负整数）
 
@@ -167,6 +120,43 @@ git submodule add https://github.com/iDvel/rime-ice
 - 古诗词
 - 文章语句
 
+## 设计
+
+### 输入方案
+
+为了方便拉取合并更新，自定义事项使用`patch`。
+
+功能上，微机（PC）以`微软拼音`为参考，移动终端以`Gboard`（谷歌 Gboard 输入法）为参考，结合 Rime 的各种方案组合如下
+
+- 状态栏功能
+  - [x] 中英、中英标点、全半角切换，Rime 自带
+  - [x] 简繁转换，opencc 实现
+  - [x] 表情及符号面板，仅 Trime（同文风主题、流体键盘）
+- 输入方案相关
+  - [x] 模糊拼音，袖珍简化字拼音实现
+  - [ ] 双拼，理想中的简易双拼是注音输入
+- 输入操作
+  - [ ] 候选字翻页，融合拼音由于使用了`-`，因此不支持-/=翻页。
+  - [x] 以词定字，左右方括号，雾凇拼音实现。
+  - [x] u 模式，部件拼字。以字海两分输入方案为反查（融合拼音实现），反查起首从、`改为`u`（雾凇拼音实现）。
+  - [x] uu 模式，专门字符。以`symbol.yaml`为基础，将默认的`/`改为`uu`（雾凇拼音实现以 v 开头）。
+  - [ ] v 模式，输入内容格式转换。计划通过 lua 脚本实现（脚本有现成的）
+    - 数字
+    - 日期
+    - 时间
+    - 公式
+  - [ ] v[uc|gb] 模式，字符集编码输入。Unicode 输入有现成方案，但不知能否增加反查。
+  - [ ] ; 模式，人名候选，提高姓氏、常见名字组合权重。考虑和分词等有关，或者设计一个过滤器。
+- 词库
+  - [x] 自定义短语，Rime 自带。
+  - [x] 内置文本替换，融合拼音实现_oo 输入替换。
+  - [x] emoji 语义输入，雾凇拼音通过 opencc 实现
+  - [x] 专业/扩展词典，Rime 自带。
+
+1. [融合拼音](https://github.com/tumuyan/rime-melt)：以 [袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)、[【Rime 简体中文用户定制文件】](https://github.com/huaxianyan/Rime) 为基础，[字海两分](http://cheonhyeong.com/Simplified/download.html) 为反查，配合修改版 [Easy English](https://github.com/BlindingDark/rime-easy-en) 实现了简体中文和常用英语的混合输入。
+2. [雾凇拼音](https://github.com/iDvel/rime-ice)，一个长期维护的简体词库，包含全拼和常用的自然码双拼、小鹤双拼、微软双拼
+3. Unicode 输入：基于 lua 脚本的 Unicode 输入方案，解决部分未支持的字符输入问题，建议配合 [babelpad](https://www.babelstone.co.uk/Software/BabelPad.html)（Windows OS）、unicodepad（Android OS）、[unicode 字符百科](https://unicode-table.com/)（web）等工具、或 [unicode 标准文件](https://home.unicode.org/)。
+
 ### 皮肤/键盘
 
 ## 说明
@@ -198,11 +188,12 @@ git submodule add https://github.com/iDvel/rime-ice
 |[OpenCC](https://github.com/BYVoid/OpenCC)|![GitHub last commit](https://img.shields.io/github/last-commit/BYVoid/OpenCC)|![GitHub license](https://img.shields.io/github/license/BYVoid/OpenCC)|
 |[袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)|![GitHub last commit](https://img.shields.io/github/last-commit/rime/rime-pinyin-simp)|![GitHub license](https://img.shields.io/github/license/rime/rime-pinyin-simp)|
 |[Rime 简体中文用户定制文件](https://github.com/huaxianyan/Rime)|![GitHub last commit](https://img.shields.io/github/last-commit/huaxianyan/Rime)|![GitHub license](https://img.shields.io/github/license/huaxianyan/Rime)|
-|[字海两分](http://cheonhyeong.com/Simplified/download.html)|5.0|未知|
+|[字海两分](http://cheonhyeong.com/Simplified/download.html)|5.0|[叶典网](http://yedict.com/)独有|
 |[Easy English](https://github.com/BlindingDark/rime-easy-en)|![GitHub last commit](https://img.shields.io/github/last-commit/BlindingDark/rime-easy-en)|![GitHub license](https://img.shields.io/github/license/BlindingDark/rime-easy-en)|
 |[融合拼音](https://github.com/tumuyan/rime-melt)|![GitHub last commit](https://img.shields.io/github/last-commit/tumuyan/rime-melt)|![GitHub license](https://img.shields.io/github/license/tumuyan/rime-melt)|
 |[雾凇拼音](https://github.com/iDvel/rime-ice)|![GitHub last commit](https://img.shields.io/github/last-commit/iDvel/rime-ice)|![GitHub license](https://img.shields.io/github/license/iDvel/rime-ice)|
 |[雾凇拼音自定义配置](https://github.com/someok/rime-ice-custom)|![GitHub last commit](https://img.shields.io/github/last-commit/someok/rime-ice-custom)|![GitHub license](https://img.shields.io/github/license/someok/rime-ice-custom)|
+|[白霜词库](https://github.com/gaboolic/rime-frost)|![GitHub last commit](https://img.shields.io/github/last-commit/gaboolic/rime-frost)|![GitHub license](https://img.shields.io/github/license/gaboolic/rime-frost)|
 
 工具
 
@@ -337,8 +328,33 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 #### Theme：主题文件
 
 - `wendao.trime.yaml`，自定义。用于 Trime。
-- `trime.yaml`，缺省主题，提取自 [Trime](https://github.com/osfans/trime)。用于 Trime。
+- `trime.yaml`，缺省主题，提取自 [Trime](https://github.com/osfans/trime)的[app/src/main/assets/shared](https://github.com/osfans/trime/tree/develop/app/src/main/assets/shared)路径。用于 Trime。
 - `weasel.custom.yaml`，用于小狼毫。可参考[owlzou的小狼毫主题编辑器](https://owlzou.github.io/weasel-theme-editor/)。
+
+主题/皮肤/键盘
+
+```yaml
+# 信息区
+config_version: 
+name: 
+author: 
+description: 
+# 常量区
+# 风格区
+style:
+# 回滚配色
+fallback_colors:
+  __include: trime:/fallback_colors
+# 预设配色方案
+preset_color_schemes:
+# Android键值
+android_keys:
+  __include: trime:/android_keys
+#预设键值
+
+#流体键盘
+#预设键盘
+```
 
 #### Other
 
@@ -348,14 +364,19 @@ melt_eng 方案（即 Easy Englishi Nano）要求：
 
 ## 运行环境与处理
 
+### fcitx配置
+
+- fcitx5-rime，`defualt.custom.yaml`在`/home/{user}/.local/share/fcitx5/rime/`
+
+```cmd
+rime_frontend=fcitx5-rime bash rime-install iDvel/rime-ice:others/recipes/full
+```
+
 ### 拉取词库
 
 使用子模块方法
 
 ```bash
-#添加子模块到指定路径
-git submodule add https://github.com/tumuyan/rime-melt raw/rime-melt
-git submodule add https://github.com/iDvel/rime-ice raw/rime-ice
 #更新子模块
 git submodule update --remote
 #手动调整
