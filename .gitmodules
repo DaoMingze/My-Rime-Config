@@ -4,3 +4,6 @@
 [submodule "raw/rime-ice"]
 	path = raw/rime-ice
 	url = https://github.com/iDvel/rime-ice
+[submodule "raw/rime-frost"]
+	path = raw/rime-frost
+	url = https://github.com/gaboolic/rime-frost
