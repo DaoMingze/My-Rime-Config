@@ -1,0 +1,293 @@
+preset_keyboards:
+  default:
+    name: 44键解决方案
+    author: *au
+    ascii_mode: 0
+    label_transform: uppercase
+    lock: true
+    width: 10
+    height: *keyboard
+    keys:
+    - { click: "1", long_click: "!" }
+    - { click: "2", long_click: "@" }
+    - { click: "3", long_click: "#" }
+    - { click: "4", long_click: $ }
+    - { click: "5", long_click: "%" }
+    - { click: "6", long_click: ^ }
+    - { click: "7", long_click: "&" }
+    - { click: "8", long_click: "*" }
+    - { click: "9", long_click: "(){Left}" }
+    - { click: "0", long_click: _ }
+    - { click: q, long_click: "-" }
+    - { click: w, long_click: + }
+    - { click: e, long_click: "=" }
+    - { click: r, long_click: "|" }
+    - { click: t, long_click: \ }
+    - { click: y, long_click: "[]{Left}" }
+    - { click: u, long_click: "{}{Left}" }
+    - { click: i, long_click: "`" }
+    - { click: o, long_click: "~" }
+    - { click: p, long_click: · }
+    - { width: 5 }
+    - { click: a, long_click: Select_all }
+    - { click: s, long_click: Time }
+    - { click: d, long_click: Date }
+    - { click: f, long_click: Replace }
+    - { click: g, long_click: / }
+    - { click: h, long_click: ; }
+    - { click: j, long_click: ":" }
+    - { click: k, long_click: "''{Left}" }
+    - { click: l, long_click: "{Left}" }
+    - { width: "5" }
+    - { click: Shift_L, composing: Delimiter, width: 15}
+    - { click: z, long_click: Undo }
+    - { click: x, long_click: Cut }
+    - { click: c, long_click: Copy }
+    - { click: v, long_click: Paste }
+    - { click: b, long_click: "?" }
+    - { click: n, long_click: Chinesedate }
+    - { click: m }
+    - { click: Backspace, width: 15 }
+    - { click: Keyboard_symbol, long_click: Lk_emoji, width: 15 }
+    - { click: Keyboard_number, long_click: Set_theme }
+    - { width: "10", has_meun: <, null: [""] }
+    - { click: Space_con, width: 30 }
+    - { click: ., long_click: ">" }
+    - { click: Lk_switch, long_click: Set_color }
+    - { click: Return, width: 20}
+    - { click: Hide, width: 20 }
+    - { click: X1 }
+    - { click: X2 }
+    - { click: Voice_assist, swipe_left: Left, swipe_right: Right, width: 20 }
+    - { click: X3 }
+    - { click: X4 }
+    - { click: Lk_clipboard, width: 20}
+  letter:
+    name: 26键解决方案
+    author: *au
+    ascii_mode: 0
+    width: 10 #单个按键宽度
+    height: *keyboard #键盘高度
+    label_transform: uppercase #uppercase|none 中文模式下的字母标签自动大写
+    lock: true #切换进程时记忆键盘
+    keys:
+      # line 1
+      - { click: "q", long_click: "1" }
+      - { click: "w", long_click: "2" }
+      - { click: "e", long_click: "3" }
+      - { click: "r", long_click: "4" }
+      - { click: "t", long_click: "5" }
+      - { click: "y", long_click: "6" }
+      - { click: "u", long_click: "7" }
+      - { click: "i", long_click: "8" }
+      - { click: "o", long_click: "9" }
+      - { click: "p", long_click: "0" }
+      # line 2
+      - { width: 5 }
+      - { click: "a", long_click: select_all }
+      - { click: "s", long_click: Time }
+      - { click: "d", long_click: Date }
+      - { click: "f", long_click: "!" }
+      - { click: "g", long_click: "·" }
+      - { click: "h", long_click: '""{LEFT}' }
+      - { click: "j", long_click: "^" }
+      - { click: "k", long_click: ":" }
+      - { click: "l", long_click: ";" }
+      - { width: 5 }
+      # line 3
+      - { click: Shift_L, has_menu: "'", width: 15 }
+      - { click: "z", long_click: "/" }
+      - { click: "x", long_click: cut }
+      - { click: "c", long_click: copy }
+      - { click: "v", long_click: paste }
+      - { click: "b", long_click: "?" }
+      - { click: "n", long_click: ChineseDate }
+      - { click: "m", long_click: '\' }
+      - { click: BackSpace, width: 15 }
+      #line 4
+      - { click: Keyboard_symbols, long_click: Menu, width: 15 }
+      - { click: Keyboard_number, long_click: Theme_settings }
+      - { label: "，", click: ",", long_click: "<" }
+      - { click: space, width: 30 }
+      - { label: "。", click: ".", long_click: ">" }
+      - { click: liquid_keyboard_switch, long_click: Color_settings }
+      - { click: Return, width: 15 }
+  number:
+    name: 25键数字小键盘
+    author: *au
+    width: 20
+    height: *keyboard
+    keys:
+      #line 1
+      - { click: "+", long_click: Insert }
+      - { click: "1", long_click: Home }
+      - { click: "2", long_click: Up }
+      - { click: "3", long_click: Page_Up }
+      - { click: "%", long_click: Delete }
+      #line 2
+      - { click: "-", long_click: Keyboard_letter }
+      - { click: "4", long_click: LEFT }
+      - { click: "5", long_click: select_all }
+      - { click: "6", long_click: Right }
+      - { click: "#" }
+      #line 3
+      - { click: "*", long_click: liquid_keyboard_switch }
+      - { click: "7", long_click: End }
+      - { click: "8", long_click: Down }
+      - { click: "9", long_click: Page_Down }
+      - { click: ":", long_click: ";" }
+      #line 4
+      - { click: "/", long_click: Deploy }
+      - { click: "@", long_click: copy }
+      - { click: "0", long_click: cut }
+      - { click: "=", long_click: paste }
+      - { click: BackSpace }
+      #line 5
+      - { click: Keyboard_default, long_click: Keyboard_symbols }
+      - { click: ",", long_click: "(" }
+      - { click: space }
+      - { click: ".", long_click: ")" }
+      - { click: "Return", long_click: Hide }
+      #line 6 小米全面屏优化导致键盘下移，因此添加一行输入法功能栏。
+      - { click: Hide, width: 20 }
+      - {
+          click: VOICE_ASSIST,
+          swipe_left: LEFT,
+          swipe_right: Right,
+          width: 60,
+        }
+      - { click: liquid_keyboard_clipboard, width: 20 }
+  symbols:
+    name: 符号键盘
+    author: *au
+    ascii_mode: 1
+    width: 10
+    height: *keyboard
+    keys:
+      #line 1
+      - { click: "1" }
+      - { click: "2" }
+      - { click: "3" }
+      - { click: "4" }
+      - { click: "5" }
+      - { click: "6" }
+      - { click: "7" }
+      - { click: "8" }
+      - { click: "9" }
+      - { click: "0" }
+      #line 2
+      - { click: "~", long_click: "`" }
+      - { click: "!" }
+      - { click: "@" }
+      - { click: "#" }
+      - { click: "$" }
+      - { click: "￥" }
+      - { click: "%" }
+      - { click: "^" }
+      - { click: "&" }
+      - { click: "*" }
+      #line 3
+      - { click: "(", long_click: "{" }
+      - { click: ")", long_click: "}" }
+      - { click: "[", long_click: "【" }
+      - { click: "]", long_click: "】" }
+      - { click: "「", long_click: "『" }
+      - { click: "」", long_click: "』" }
+      - { click: "、", ascii: '\', long_click: "|" }
+      - { click: "/", long_click: "√" }
+      - { click: ":" }
+      - { click: ";" }
+      #line 4
+      - { click: Tab, width: 20 }
+      - { click: "+" }
+      - { click: "-", long_click: "_" }
+      - { click: "《》{LEFT}", ascii: "<>{LEFT}", long_click: "〔〕{LEFT}" }
+      - { click: "“”{LEFT}", ascii: '""{LEFT}', long_click: "‘’{LEFT}" }
+      - { click: "=" }
+      - { click: "？", ascii: "?" }
+      - { click: BackSpace, long_click: Escape, width: 20 }
+      #line 5
+      - { click: Keyboard_number, long_click: Keyboard_default, width: 20 }
+      - { click: "，", ascii: ",", long_click: LEFT }
+      - { click: space, width: 40 }
+      - { click: "。", ascii: ".", long_click: Right }
+      - { click: Return, long_click: Hide, width: 20 }
+  stroke:
+    name: 五笔画
+    author: *au
+    ascii_mode: 0
+    ascii_keyboard: letter
+    width: 20
+    height: *keyboard
+    keys:
+      #line 1
+      - { click: Home }
+      - { click: "h", label: "一" }
+      - { click: Up }
+      - { click: "s", label: "丨" }
+      - { click: End }
+      #line 2
+      - { click: Page_Up }
+      - { click: LEFT }
+      - { click: "z", label: "乙" }
+      - { click: Right }
+      - { click: Page_Down }
+      #line 3
+      - { click: cut }
+      - { click: "p", label: "丿" }
+      - { click: Down }
+      - { click: "n", label: "丶" }
+      - { click: paste }
+      #line 4
+      - { click: "/" }
+      - { click: select_all }
+      - { click: Deploy }
+      - { click: copy }
+      - { click: BackSpace }
+      #line 5
+      - { click: Keyboard_default, long_click: Menu }
+      - { click: ",", long_click: Theme_settings }
+      - { click: space }
+      - { click: ".", long_click: Color_settings }
+      - { click: Return, long_click: Hide }
+  unicode:
+    name: 统一码
+    author: *au
+    ascii_mode: 0
+    width: 25
+    height: *keyboard
+    keys:
+      #line1
+      - { click: a }
+      - { click: b }
+      - { click: c }
+      - { click: BACKSPACE }
+      #line2
+      - { click: 7 }
+      - { click: 8 }
+      - { click: 9 }
+      - { click: d }
+      #line3
+      - { click: 4 }
+      - { click: 5 }
+      - { click: 6 }
+      - { click: e }
+      #line4
+      - { click: 1 }
+      - { click: 2 }
+      - { click: 3 }
+      - { click: f }
+      #line5
+      - { click: Schema_switch }
+      - { click: 0 }
+      - { click: "U" }
+      - { click: space }
+      #line 6 小米全面屏优化导致键盘下移，因此添加一行输入法功能栏。
+      - { click: Hide, width: 20 }
+      - {
+          click: VOICE_ASSIST,
+          swipe_left: LEFT,
+          swipe_right: Right,
+          width: 60,
+        }
+      - { click: Menu, width: 20 }
